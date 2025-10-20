@@ -1,57 +1,54 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Header & Footer Layout</title>
-  <link rel="stylesheet" href="/CSS/login.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link rel="stylesheet" href="path/to/font-awesome/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Main Page</title>
+
+  <link rel="stylesheet" href="/CSS/login.css" />
+  <link rel="stylesheet" href="/CSS/main.css" />
+  <link rel="stylesheet" href="/CSS/header_footer.css?v=1" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
-
 <body>
-  <!-- ===== HEADER ===== -->
-  <header class="site-header">
-    <div class="container header-container">
-      <div class="header-left">
-        <button class="menu-btn" aria-label="Menu"><i class="fa-solid fa-grip"></i></button>
-        <img src="/PICS_LOGOs/logo.png" alt="Site Logo" class="header-logo">
-        <div class="date-box">
-          <i class="fas fa-calendar-alt"></i>
-          <span class="header-date">12.10.25</span>
+  <div data-include="/partials/header.html"></div>
+
+  <main class="auth-page">
+    <div class="auth-card">
+      <img class="auth-logo" src="/PICS_LOGOs/logo.png" alt="Россотрудничество" onerror="this.style.display='none'">
+      <h1 class="auth-title">Вход</h1>
+
+      <form id="loginForm" novalidate>
+        <div class="form-row">
+          <input type="email" id="login" name="email" placeholder="Email" autocomplete="username" required>
         </div>
-      </div>
 
-      <div class="header-right">
-        <button class="lang-btn">RU</button>
-        <button class="login-btn"><i class="fas fa-user"></i> Войти</button>
-        <button class="register-btn">Регистрация</button>
-      </div>
+        <div class="form-row form-pass">
+          <input type="password" id="password" name="password" placeholder="Пароль" autocomplete="current-password" required>
+          <button class="toggle-pass" type="button" aria-label="Показать пароль">
+            <i class="fa-regular fa-eye"></i>
+          </button>
+        </div>
+
+        <div class="form-help">
+          <label class="remember">
+            <input type="checkbox" id="remember"> Запомнить меня
+          </label>
+          <a class="forgot" href="#">Забыли пароль?</a>
+        </div>
+
+        <button type="submit" class="btn btn-secondary" id="loginBtn">Вход</button>
+        <a href="/HTML/register.html" class="btn btn-primary" id="regBtn">Регистрация</a>
+        
+
+        <p class="form-msg" id="formMsg" role="alert" hidden></p>
+      </form>
     </div>
-  </header>
+  </main>
 
-  <!-- ===== MAIN CONTENT (EMPTY FOR NOW) ===== -->
-  <main></main>
+  <div data-include="/partials/footer.html"></div>
 
-
-
-  
-  <!-- ===== FOOTER ===== -->
-  <footer class="site-footer">
-    <div class="container footer-container">
-      <div class="footer-icons">
-        <a href="#"><i class="fab fa-youtube"></i></a>
-        <a href="#"><i class="fab fa-telegram"></i></a>
-        <a href="#"><i class="fab fa-vk"></i></a>
-      </div>
-      <div class="footer-links">
-        <a href="#">О проекте</a>
-        <a href="#">Адрес</a>
-        <a href="#">Консультация</a>
-      </div>
-    </div>
-  </footer>
-
+  <script src="/JS/login.js" defer></script>
   <script src="/JS/main.js"></script>
 </body>
 </html>

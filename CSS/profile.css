@@ -1,0 +1,541 @@
+@font-face {
+  font-family: 'Gilroy bold';
+  src: url('../font/Gilroy-Bold.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Gilroy medium';
+  src: url('../font/Gilroy-Medium.woff2') format('woff2');
+}
+
+
+:root{
+  --bg:#eef2ff;
+  --card:#ffffff;
+  --muted:#6b7280;
+  --text:#111827;
+  --blue:#4a5df0;
+  --shadow: 0 24px 50px rgba(18,24,80,.12);
+  --radius: 18px;
+}
+
+/* page */
+body{ background:var(--bg); }
+.profile-stage{ padding:22px 16px 40px; }
+.profile-shell{
+  max-width: 1260px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0,1fr) 370px;   /* left + right sidebar */
+  gap: 22px;
+}
+
+/* Generic card */
+.card{
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 16px;
+}
+
+/* ====== profile header (fix) ====== */
+/* Profile card keeps padding for the text, but the avatar will
+   visually sit on the card edge */
+.profile-card{
+  padding:16px;
+  display:grid;
+  grid-template-columns: 260px minmax(0,1fr);
+  gap:18px;
+  align-items:start;
+}
+
+/* Make the image a part of the card (no inner padding on left/top/bottom) */
+.avatar{
+  width:260px;
+  height:300px;
+  min-height:240px;
+  margin: -16px 0 -16px -16px;          /* remove card padding on L/T/B sides   */
+  border-radius: var(--radius) 0 0 var(--radius); /* round only left corners        */
+  overflow:hidden;                       /* keep image inside rounded corners    */
+}
+
+.avatar img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+.pbody{ display:flex; flex-direction:column; }
+
+/* ——— Title ——— */
+.pname{
+  margin: 0 0 14px;
+  font-size: 26px;           /* like the mockup */
+  line-height: 1.15;
+  font-weight: 800;
+  color: #4A494E;
+}
+
+/* ——— Meta row ——— */
+.pmeta{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 16px;            /* row x col gap */
+  margin-bottom: 16px;
+  font-size: 11px;
+  
+}
+
+.meta{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;         /* subtle chip look as on the mockup */
+  border-radius: 10px;
+  background: #ffffff;
+  color: #506CEB;
+  font-weight: 600;
+  white-space: nowrap;       /* keep items in a single line each */
+}
+
+.meta-ico{
+  width: 20px;               /* ← change these two lines to resize your icons */
+  height: 20px;
+  object-fit: contain;
+}
+
+/* ——— Quote ——— */
+.pquote{
+  margin: 8px 0 18px;
+  color: #333;
+  line-height: 0.5;
+  font-size: 16px;
+}
+
+.pquote + .pquote {
+  margin-top: 0px;       /* just a small visual gap */
+}
+
+/* ——— Tags ——— */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 25px;   /* horizontal spacing between chips */
+  row-gap: 14px;      /* vertical spacing between rows */
+}
+
+.chip {
+  background: #EBEFFF;
+  color: #506CEB;
+  font-weight: 700;
+  padding: 8px 16px;   /* top/bottom and left/right padding */
+  border-radius: 12px;
+  font-size: 16px;
+  line-height: 1.5;    /* tighter text layout */
+}
+
+/* one row of chips */
+.profile-card .chips{
+  display:flex;
+  gap:20px;                 /* horizontal space between chips in a row */
+}
+
+/* vertical space between the two rows (the 2nd .chips) */
+.profile-card .chips + .chips{
+  margin-top:16px;          /* increase if you want more space */
+}
+
+
+
+/* ====== portfolio ====== */
+.portfolio-card .card-head {
+  display: flex;
+  justify-content: space-between;  /* pushes title left, arrows right */
+  align-items: center;
+  margin-bottom: 6px;              /* small spacing under the header */
+}
+
+.portfolio-card .card-head h2 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1e1e1e;
+  margin: 0;                       /* remove extra top/bottom margin */
+}
+
+.arrows {
+  display: flex;
+  gap: 1px;                        /* space between arrow buttons */
+}
+
+.arrows .arrow {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: 1px solid #ffffff;
+  background: #ffffff;
+  color: #3450CD;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: background 0.2s ease;
+}
+
+.arrows .arrow:hover {
+  background: #e5e9ff;
+}
+
+.port-viewport {
+  overflow: hidden;
+  border-radius: 14px;
+  margin-top: 12px;
+}
+
+.port-track {
+  display: flex;
+  gap: 16px;
+  padding: 8px 4px;
+  scroll-behavior: smooth;
+  overflow-x: auto;          /* ← enable horizontal scrolling */
+  scrollbar-width: none;     /* hide scrollbar (Firefox) */
+}
+
+.port-track::-webkit-scrollbar { display: none; }  /* hide scrollbar (Chrome) */
+
+.port-item{
+  flex: 0 0 130px;   /* ← width of each card  */
+  height: 130px;     /* ← height of each card */
+  border-radius:14px;
+  background:#d9d9d9;
+}
+
+
+
+
+/* ===== Documents (exactly like the screenshot) ===== */
+.docs-card h2{
+  font-size: 18px;
+  margin: 2px 0 12px;
+}
+
+.docs-scroll{
+  /* 3 rows visible; adjust if you need a bit taller/shorter */
+  height: 260px;
+  overflow-y: auto;
+  padding-right: 10px;              /* space so content doesn't touch scrollbar */
+  scrollbar-width: var(--muted);            /* Firefox */
+  scrollbar-color: #cfd6ff transparent;
+  
+}
+
+/* WebKit scrollbar */
+.docs-scroll::-webkit-scrollbar{ width: 10px; }
+.docs-scroll::-webkit-scrollbar-thumb{
+  background: #cfd6ff;
+  border-radius: 10px;
+  
+}
+.docs-scroll::-webkit-scrollbar-track{
+  background: #eef2ff;              /* pale track like on your mock */
+  border-radius: 10px;
+  
+}
+
+.docs-grid{
+  display: grid;
+  /* responsive columns that keep a compact card width */
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 14px 16px;                   /* row / column spacing */
+  
+}
+
+/* single tile */
+.doc-tile{
+  position: relative;
+  display: grid;
+  grid-template-columns: 46px 1fr;
+  gap: 10px;
+  align-items: center;
+  font-size: 12px;
+  background:#fff;                  /* white card, like screenshot */
+  border: 1px solid #eef1ff;
+  border-radius: 12px;
+  padding: 10px 12px 12px;
+  box-shadow: 0 6px 14px rgba(18, 24, 80, .06);
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+.doc-tile:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(18, 24, 80, .10);
+  
+}
+
+/* icon box */
+.doc-ico{
+  width: 40px; height: 38px;
+  display: grid; place-items: center;
+  border-radius: 10px;
+  background: #eef2ff;
+  color: #5a6df4;
+  font-size: 20px;
+}
+
+
+
+/* text part */
+.doc-title{
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.doc-meta{
+  font-size: 12px;
+  color: #6b7280;
+}
+
+/* delete cross */
+.doc-del{
+  position: absolute;
+  right: 6px; top: 6px;
+  width: 22px; height: 22px;
+  display: grid; place-items: center;
+  border-radius: 50%;
+  background: #fff;
+  color: #6b7280;
+  border: 1px solid #e6e9ff;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,.06);
+}
+.doc-del:hover{ color:#ef4444; }
+
+/* make the whole tile a download link without blocking the X */
+.doc-link{
+  position:absolute; inset:0;
+  border-radius: 12px;
+}
+
+
+
+
+
+
+
+/* ====== Events sidebar (fixed layout) ====== */
+.events-card .card-head h2 {
+  font-size: 18px;      /* ← change this value as you like */
+  font-weight: 700;     /* make it bold if needed */
+  margin-bottom: 6px;   /* spacing under the title */
+  color: #1e1e1e;       /* optional: darker color */
+}
+
+
+.switch {
+  display: flex;
+  background: #edf0ff;           /* blue background container */
+  border-radius: 12px;
+  padding: 4px;
+  margin: 8px 0 12px;
+  gap: 4px;
+}
+
+.sw-btn {
+  flex: 1;                       /* each button same width */
+  padding: 10px 0;
+  border: none;
+  border-radius: 10px;
+  background: transparent;       /* inactive button blends into container */
+  color: #3246e6;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.sw-btn.active {
+  background: #ffffff;           /* white active button */
+  color: #3246e6;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+
+.events-list{
+  list-style:none;
+  padding:-1px 1px;;
+  margin:0;
+  display:grid;
+  gap:12px;
+  
+}
+
+/* 56px logo | flexible text | compact date | 12px dot */
+.event-li{
+  display:grid;
+  grid-template-columns: 45px minmax(0,1fr) 40px 10px;
+  column-gap: 10px; 
+  align-items:center;
+  padding:10px 1px;
+  border-radius:14px;
+  border:1px solid #fefefe;
+  background:#fff;
+}
+
+.e-logo{
+  width:50px; height:50px;
+  border-radius:1%;
+  object-fit:cover;
+  
+}
+
+/* title uses the full flexible column, can wrap to 2+ lines */
+.e-title{
+  font-weight:700;
+  line-height:1.15;
+  font-size:14px;
+  white-space:none;        /* allow wrapping */
+  word-break:normal;     /* break long words if needed */
+  margin:0;
+  color:#2b2f38;
+}
+
+/* subtitle sits under the title and spans to the date column */
+.e-sub{
+  grid-column: 2 / 4;        /* text takes both the text and date space */
+  color:#6b7280;
+  font-size:14px;
+  line-height:2;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;    /* nice one-line trim */
+  margin-top:2px;
+  
+}
+
+/* compact, right-aligned date */
+.e-date{
+  grid-column: 3;
+  font-weight:700;
+  color:#2b2f38;
+  white-space:nowrap;
+  align-self:start;
+}
+
+/* status dot at the far right column */
+.e-dot{
+  grid-column: 4 / 2;
+  width:10px; height:10px;
+  border-radius:50%;
+  justify-self:end;
+  
+  
+}
+.e-dot.going{ background:#4f6ef7; }   /* blue  – attending  */
+.e-dot.new{   background:#34d399; }   /* green – new        */
+.e-dot.seen{  background:#9ca3af; }   /* gray  – viewed     }
+
+
+
+/* ===== Visited (Посещенные мероприятия) ===== */
+.visited-card .card-head h2 {
+  font-size: 18px;       /* change this to whatever you want */
+  font-weight: 700;      /* boldness */
+  margin-bottom: 8px;    /* small space below */
+  color: #1e1e1e;        /* optional dark text */
+}
+
+.visited-grid{
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr)); /* 5 in a row */
+  gap: 10px 20px;                                   /* row/column gaps */
+  padding: 6px 4px 14px;
+}
+
+
+.visit-item{
+  background: #fff;
+  min-height: 110px;                 /* card height like on screenshot */
+  padding: 12px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;                          /* space between logo and caption */
+}
+
+.visit-item img{
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  display: block;
+}
+
+/* Caption under the logo (if you add a <span class="visit-cap">ВФМ</span>) */
+.visit-cap{
+  font: 700 14px/1.1 "Inter", system-ui, -apple-system, Segoe UI, Arial, sans-serif;
+  color: #2f2f37;
+  letter-spacing: .2px;
+}
+
+/* OR: If you don't want to add a span, set data-title="ВФМ" on each .visit-item */
+.visit-item[data-title]::after{
+  content: attr(data-title);
+  margin-top: 2px;
+  font-weight: 800;
+  font-size: 14px;
+  color: #2f2f37;
+}
+
+/* Responsive: keep it neat on narrower screens */
+@media (max-width: 1100px){
+  .visited-grid{ grid-template-columns: repeat(4, 1fr); }
+}
+@media (max-width: 740px){
+  .visited-grid{ grid-template-columns: repeat(3, 1fr); }
+}
+
+
+
+
+/* ====== responsive ====== */
+@media (max-width: 1140px){
+  .profile-shell{ grid-template-columns: 1fr; }
+  .col-right{ order:2; }
+}
+
+.col-left > .card {
+  margin-bottom: 20px;          /* space between cards */
+}
+
+.col-left > .card:last-child {
+  margin-bottom: 15px;
+}
+
+/* Right column stacks its blocks with a consistent space */
+.col-right {
+  display: flex;
+  flex-direction: column;
+  gap: 0px;              /* <- distance between "Ближайшие..." and "Посещенные..." */
+  align-self: start;      /* keep the column aligned to top of the grid */
+}
+
+/* Ensure each card keeps its own rounded box and doesn't collapse margins */
+.col-right .card {
+  margin: 0;              /* remove any accidental margins inside */
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 18px 40px rgba(18,24,80,.12);
+  overflow: hidden;       /* keep inner lists from overflowing corners */
+}
+
+/* Optional: unify spacing between ALL stacked cards anywhere */
+.profile-shell .card + .card {
+  margin-top: 24px;       /* works even if there’s no col-right wrapper */
+}
+
+/* Responsive (if your shell collapses to one column on mobile) */
+@media (max-width: 1100px) {
+  .profile-shell {
+    grid-template-columns: 1fr; /* already likely in your file */
+  }
+  .col-right {
+    order: 3;             /* place after left column sections */
+    gap: 20px;            /* a hair smaller on mobile if you like */
+  }
+}

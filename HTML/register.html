@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Регистрация</title>
+
+  <link rel="stylesheet" href="/CSS/register.css?v=1">
+  <link rel="stylesheet" href="/CSS/login.css" />
+  <link rel="stylesheet" href="/CSS/main.css" />
+  <link rel="stylesheet" href="/CSS/header_footer.css?v=1" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <div data-include="/partials/header.html"></div>
+
+  <main class="auth-page">
+    <div class="auth-card">
+      <img src="/PICS_LOGOs/logo.png" alt="Логотип" class="auth-logo">
+      <h1 class="auth-title">Регистрация</h1>
+
+      <form id="registerForm" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="firstName">Имя</label>
+            <!-- name must be firstName -->
+            <input id="firstName" name="firstName" type="text" autocomplete="given-name" required>
+          </div>
+
+          <div class="form-group">
+            <label for="lastName">Фамилия</label>
+            <!-- name must be lastName -->
+            <input id="lastName" name="lastName" type="text" autocomplete="family-name" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <!-- name must be email -->
+          <input id="email" name="email" type="email" autocomplete="email" required>
+          <small class="hint">Используйте действующий адрес, на него отправим подтверждение</small>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Телефон (необязательно)</label>
+          <!-- name must be phone -->
+          <input id="phone" name="phone" type="tel" inputmode="tel" placeholder="+7XXXXXXXXXX">
+        </div>
+
+        <div class="form-group">
+          <label for="password">Пароль</label>
+          <div class="input-with-icon">
+            <!-- name must be password -->
+            <input id="password" name="password" type="password" autocomplete="new-password" required>
+            <button class="toggle-pw" type="button" aria-label="Показать/скрыть пароль">
+              <i class="fa-regular fa-eye"></i>
+            </button>
+          </div>
+          <div class="pw-meter" aria-hidden="true"><span></span><span></span><span></span></div>
+          <small id="pwHelp" class="hint">Минимум 6 символов, буквы и цифры</small>
+        </div>
+
+        <div class="form-group">
+          <label for="password2">Подтвердите пароль</label>
+          <div class="input-with-icon">
+            <input id="password2" name="password2" type="password" autocomplete="new-password" required>
+            <button class="toggle-pw" type="button" aria-label="Показать/скрыть пароль">
+              <i class="fa-regular fa-eye"></i>
+            </button>
+          </div>
+          <small id="pw2Hint" class="hint"></small>
+        </div>
+
+        <div class="form-check">
+          <input id="agree" type="checkbox" required>
+          <label for="agree">Я принимаю условия обработки персональных данных</label>
+        </div>
+
+        <!-- Remove disabled so JS can handle validation & submit -->
+        <button id="registerBtn" class="btn btn-primary" type="submit">Создать аккаунт</button>
+        <!-- Fix path to login page if needed -->
+        <a class="btn btn-ghost" href="/HTML/login.html">У меня уже есть аккаунт</a>
+      </form>
+    </div>
+  </main>
+
+  <div data-include="/partials/footer.html"></div>
+
+  <script src="/JS/register.js"></script>
+  <script src="/JS/login.js"></script>
+  <script src="/JS/main.js"></script>
+</body>
+</html>

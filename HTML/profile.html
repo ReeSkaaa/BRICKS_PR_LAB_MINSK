@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Профиль</title>
+
+  <link rel="stylesheet" href="/CSS/profile.css?v=4">
+  <link rel="stylesheet" href="/CSS/header_footer.css?v=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+
+  <!-- header partial -->
+  <div data-include="/partials/header.html"></div>
+
+  <main class="profile-stage">
+    <div class="profile-shell">
+
+      <!-- ===== LEFT COLUMN ===== -->
+      <div class="col-left">
+
+        <!-- Profile header card -->
+        <section class="card profile-card">
+          <figure class="avatar">
+            <img src="/PICS_LOGOs/ivanova.png" alt="avatar">
+          </figure>
+
+          <div class="pbody">
+          <h1 class="pname">Иванова Дарья Александровна</h1>
+
+          <div class="pmeta">
+            <span class="meta">
+              <img class="meta-ico" src="/PICS_LOGOs/meta_uni.svg" alt="">
+              НИУ ВШЭ, г. Москва
+            </span>
+
+            <span class="meta">
+              <img class="meta-ico" src="/PICS_LOGOs/meta_hat.svg" alt="">
+              2 курс, Факультет компьютерных наук
+            </span>
+          </div>
+
+          <p class="pquote">
+            Наука — это организованные знания,
+          </p>
+
+          <p class="pquote">
+            мудрость — это организованная жизнь. И. Кант
+          </p>
+
+          <div class="chips">
+            <span class="chip">Наука</span>
+            <span class="chip">Путешествия</span>
+            <span class="chip">Философия</span>
+          </div>
+
+          <div class="chips">
+            <span class="chip">ИИ</span>
+            <span class="chip">Мода</span>
+          </div>
+
+        </div>
+        </section>
+
+        <!-- Portfolio carousel -->
+        <section class="card portfolio-card">
+          <header class="card-head">
+            <h2>Портфолио</h2>
+            <div class="arrows">
+              <button class="arrow" id="portPrev" aria-label="Назад"><i class="fa-solid fa-angle-left"></i></button>
+              <button class="arrow" id="portNext" aria-label="Вперёд"><i class="fa-solid fa-angle-right"></i></button>
+            </div>
+          </header>
+
+          <div class="port-viewport">
+            <div class="port-track" id="portTrack">
+              <!-- 6 placeholders (replace with real works) -->
+              <div class="port-item"></div>
+              <div class="port-item"></div>
+              <div class="port-item"></div>
+              <div class="port-item"></div>
+              <div class="port-item"></div>
+              <div class="port-item"></div>
+              <div class="port-item"></div>
+              <div class="port-item"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Documents grid with its own scrollbar ""-->
+        <section class="card docs-card">
+          <h2>Документы</h2>
+          <div class="docs-scroll" id="docsScroll"><!-- filled by JS --></div>
+        </section>
+
+      </div>
+
+      <!-- ===== RIGHT COLUMN ===== -->
+      <aside class="col-right">
+
+            <!-- Upcoming events -->
+            <section class="card events-card">
+            <header class="card-head">
+                <h2>Ближайшие мероприятия</h2>
+            </header>
+
+            <div class="switch">
+                <button class="sw-btn active" data-range="month">В этом месяце</button>
+                <button class="sw-btn" data-range="all">Все</button>
+            </div>
+
+            <ul class="events-list" id="eventsList"><!-- filled by JS --></ul>
+            </section>
+
+            <!-- Visited -->
+            <section class="card visited-card">
+            <header class="card-head">
+                <h2>Посещенные мероприятия</h2>
+            </header>
+            <div class="visited-grid" id="visitedGrid"><!-- filled by JS --></div>
+            </section>
+
+        </aside>
+    </div>
+  </main>
+
+  <!-- footer if you use it -->
+  <div data-include="/partials/footer.html"></div>
+
+  <script src="/JS/main.js"></script>
+  <script src="/JS/profile.js?v=4"></script>
+</body>
+</html>

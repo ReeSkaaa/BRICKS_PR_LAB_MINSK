@@ -1,0 +1,222 @@
+@font-face{font-family:"Gilroy bold";src:url("../font/Gilroy-Bold.woff2") format("woff2")}
+@font-face{font-family:"Gilroy medium";src:url("../font/Gilroy-Medium.woff2") format("woff2")}
+
+/* ===== Stage (map with overlays) ===== */
+.map-stage{
+  min-height:100vh;
+  background:#eef2ff;
+  display:grid;
+  place-items:center;
+  padding:20px;
+}
+
+/* Map card */
+.map-wrap{
+  position:relative;
+  width:min(1500px,95vw);
+  border-radius:26px;
+  background:#fff;
+  box-shadow:0 28px 60px rgba(18,24,80,.18);
+  padding:12px;
+}
+
+/* Full map inside card */
+.rf-map{position:relative;width:100%;height:auto;padding:16px}
+.rf-map svg{width:100%;height:auto}
+
+/* === Overlay pills (header buttons) === */
+.pill{
+  position:absolute;top:24px;z-index:20;
+  display:inline-flex;align-items:center;gap:12px;
+  padding:12px 18px;border-radius:16px;color:#fff;text-decoration:none;
+  font-weight:800;background:#90a2ff;border:1.5px solid #fff;
+  box-shadow:0 10px 24px rgba(18,24,80,.18)
+}
+.pill-left{left:24px}
+.pill-right{right:24px}
+.pill-ico{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:#fff;color:#5a6df4}
+
+/* === Sidebar overlay (glass on map) === */
+.nav-panel{
+  position:absolute;left:24px;top:90px;bottom:24px;z-index:15;width:400px;
+  border-radius:24px;background:rgba(120,140,255,.25);
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  color:#fff;padding:20px 18px;box-shadow:0 20px 40px rgba(18,24,80,.25);
+  display:flex;flex-direction:column;gap:16px;pointer-events:auto
+}
+.panel-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:6px}
+.panel-head h1{font-size:20px;font-weight:800}
+.panel-toggle{width:42px;height:42px;border:0;border-radius:12px;background:rgba(255,255,255,.15);color:#fff;cursor:pointer}
+.panel-body{display:grid;gap:14px}
+
+/* Search */
+.search-row{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.4);border-radius:14px;padding:6px 10px}
+.search-row input{flex:1;height:36px;background:transparent;border:none;color:#fff;font-size:15px;outline:none}
+.search-row input::placeholder{color:rgba(255,255,255,.75)}
+.search-row button{height:36px;width:36px;display:grid;place-items:center;background:transparent;border:none;color:#fff;font-size:18px;cursor:pointer}
+
+/* Filters */
+.filters-row{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.filter{display:grid;grid-template-columns:auto 1fr;gap:8px;align-items:center}
+.filter span{font-weight:800;opacity:.95}
+.filter select{height:38px;border-radius:12px;border:1px solid rgba(255,255,255,.4);background:rgba(255,255,255,.15);color:#fff;padding:0 12px}
+.filter select:focus{outline:none;border-color:#fff}
+.ghost{height:38px;padding:0 14px;border-radius:12px;background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.4);cursor:pointer}
+
+/* Categories */
+.category-list{display:grid;gap:8px;list-style:none;margin:4px 0 0;padding:0}
+.category-list li{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.25);padding:10px 12px;border-radius:12px;cursor:pointer;font-weight:700}
+.category-list li.active{background:#fff;color:#3246e6;font-weight:800}
+
+/* Place list */
+.place-list{display:grid;gap:12px;overflow:auto;scrollbar-width:thin;max-height:calc(100% - 220px)}
+.place-list::-webkit-scrollbar{width:8px}
+.place-list::-webkit-scrollbar-thumb{background:rgba(255,255,255,.35);border-radius:10px}
+.place-item{display:grid;grid-template-columns:50px 1fr auto;gap:12px;align-items:center;background:rgba(255,255,255,.10);border:1px solid transparent;border-radius:16px;padding:10px 12px;transition:transform .15s ease,background .2s ease,border-color .2s ease,box-shadow .2s ease;cursor:pointer}
+.place-item:hover{background:rgba(255,255,255,.15);transform:translateY(-2px)}
+.place-item.active{border:1.5px solid rgba(255,255,255,.95);box-shadow:0 0 14px rgba(255,255,255,.35);background:rgba(255,255,255,.18)}
+.place-item img{width:50px;height:50px;border-radius:12px;object-fit:cover}
+.place-item .ptitle{font-weight:700;color:#fff}
+.place-item .pmeta{font-size:13px;color:rgba(255,255,255,.88)}
+.place-item>.pmeta:last-child{background:rgba(255,255,255,.15);color:#fbd64a;border-radius:50%;width:26px;height:26px;display:grid;place-items:center;font-size:12px}
+
+/* Pins overlay */
+#map-pins{position:absolute;inset:0;pointer-events:none}
+.poi-pin{position:absolute;transform:translate(-50%,-100%);width:18px;height:18px;border-radius:50%;background:#ffcc00;border:3px solid #fff;box-shadow:0 8px 16px rgba(0,0,0,.25);pointer-events:auto;cursor:pointer}
+.poi-pin.restaurant{background:#ff6a6a}
+.poi-pin.museum{background:#6ac0ff}
+.poi-pin.park{background:#3ccf8e}
+.poi-pin.cafe{background:#9b6bff}
+.poi-pin.shop{background:#f5a623}
+.poi-pin.active{z-index:20;width:24px;height:24px;background:#ff2f2f}
+
+/* Region highlight (optional) */
+.rf-map [data-code].selected-region{fill:#c8d0ff!important}
+
+/* Popup */
+.place-card{position:absolute;min-width:360px;max-width:420px;border-radius:18px;background:linear-gradient(180deg,rgba(92,115,255,.95),rgba(92,115,255,.80));color:#fff;padding:14px 16px 16px;z-index:30;box-shadow:0 24px 48px rgba(18,24,80,.28)}
+.place-card[hidden]{display:none}
+.card-close{position:absolute;right:8px;top:6px;width:36px;height:36px;border-radius:10px;border:0;background:rgba(255,255,255,.2);color:#fff;cursor:pointer}
+.card-top{display:grid;grid-template-columns:50px 1fr;gap:12px;margin-bottom:10px;align-items:center}
+.card-img{width:50px;height:50px;border-radius:50%;object-fit:cover}
+.card-title{font-size:18px;font-weight:800;margin:0}
+.card-meta{font-size:12px;opacity:.95;display:flex;align-items:center;gap:8px}
+.card-meta .sep{opacity:.6}
+.addr-btn{width:100%;height:38px;border-radius:12px;border:1px solid rgba(255,255,255,.55);background:transparent;color:#fff;margin:6px 0 10px;cursor:pointer}
+.card-actions{display:flex;gap:10px}
+.btn-primary{display:inline-block;padding:10px 14px;border-radius:12px;font-weight:700;color:#3246e6;background:#fff;text-decoration:none}
+.btn-ghost{display:inline-block;padding:10px 14px;border-radius:12px;font-weight:700;color:#fff;background:transparent;border:1px solid rgba(255,255,255,.55);text-decoration:none}
+
+/* Responsive */
+@media (max-width:1200px){ .nav-panel{width:360px} }
+@media (max-width:980px){
+  .nav-panel{position:static;width:100%;height:auto;margin:0 0 12px 0;backdrop-filter:none;background:rgba(120,140,255,.95)}
+  .map-wrap{width:100%}
+  .pill-left,.pill-right{position:static;margin:6px}
+}
+
+/* PANEL: glass container sits on top of map */
+.nav-panel{
+  position:absolute; left:24px; top:90px; bottom:24px; width:400px;
+  z-index:15;
+  border-radius:24px;
+  background: rgba(123,140,255,.28);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 22px 44px rgba(18,24,80,.28);
+  overflow: hidden;                 /* <- clip child blur/rows */
+  color:#fff;
+  display:flex; flex-direction:column;
+}
+
+/* header inside panel */
+.panel-head{
+  display:grid; grid-template-columns: 44px 1fr 44px;
+  align-items:center; gap:10px;
+  padding:12px 12px 8px 12px;
+}
+.panel-back, .panel-close{
+  height:40px; width:40px; border:0; border-radius:12px;
+  background: rgba(255,255,255,.18); color:#fff; cursor:pointer;
+  display:grid; place-items:center;
+}
+.panel-title{ display:flex; align-items:center; gap:10px; font-weight:800; }
+.panel-logo{
+  width:34px; height:34px; border-radius:10px; background:#fff; color:#5a6df4;
+  display:grid; place-items:center; font-size:18px;
+}
+
+/* everything scrolls here; panel itself never scrolls */
+.panel-scroll{
+  position:relative;
+  display:grid; gap:12px;
+  padding: 8px 12px 14px;
+  overflow: auto;                    /* <- internal scroll only */
+  height: calc(100% - 60px);         /* subtract head height */
+  scrollbar-width: thin;
+}
+.panel-scroll::-webkit-scrollbar{ width:8px; }
+.panel-scroll::-webkit-scrollbar-thumb{
+  background: rgba(255,255,255,.32); border-radius:10px;
+}
+
+/* rows (search/filters) */
+.search-row{
+  display:flex; align-items:center; gap:8px;
+  padding:8px 10px; border-radius:14px;
+  background: rgba(255,255,255,.14);
+  border:1px solid rgba(255,255,255,.35);
+}
+.search-row input{ flex:1; height:36px; background:transparent; border:0; color:#fff; outline:none; }
+.search-row input::placeholder{ color:rgba(255,255,255,.8); }
+.search-row button{ width:36px; height:36px; border:0; background:transparent; color:#fff; cursor:pointer; }
+
+.filters-row{ display:flex; align-items:center; gap:10px; }
+.filter{ display:grid; grid-template-columns:auto 1fr; gap:8px; align-items:center; }
+.filter span{ font-weight:800; opacity:.95; }
+.filter select{
+  height:38px; border-radius:12px; border:1px solid rgba(255,255,255,.35);
+  background: rgba(255,255,255,.14); color:#fff; padding:0 12px;
+}
+.ghost{
+  height:38px; padding:0 14px; border-radius:12px; border:1px solid rgba(255,255,255,.35);
+  background: rgba(255,255,255,.12); color:#fff; cursor:pointer;
+}
+
+/* list/rows surface – slightly opaque to avoid “through the map” effect */
+.category-list, .place-list{
+  background: rgba(0,0,0,.03);      /* subtle base */
+  border-radius:14px;
+  padding: 6px;
+}
+.category-list{ list-style:none; margin:0; display:grid; gap:8px; }
+.category-list li{
+  padding:10px 12px; border-radius:12px; cursor:pointer; font-weight:700;
+  background: rgba(255,255,255,.16);
+  border:1px solid rgba(255,255,255,.25);
+}
+.category-list li.active{ background:#fff; color:#3246e6; }
+
+.place-list{ display:grid; gap:10px; }
+.place-item{
+  display:grid; grid-template-columns:50px 1fr auto; align-items:center; gap:12px;
+  padding:10px 12px; border-radius:14px; cursor:pointer;
+  background: rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.22);
+  transition: transform .15s ease, background .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+.place-item:hover{ background: rgba(255,255,255,.18); transform: translateY(-2px); }
+.place-item.active{
+  background: rgba(255,255,255,.22);
+  border-color: rgba(255,255,255,.85);
+  box-shadow: 0 0 14px rgba(255,255,255,.35);
+}
+.place-item img{ width:50px; height:50px; border-radius:12px; object-fit:cover; }
+.place-item .ptitle{ font-weight:700; }
+.place-item .pmeta{ color: rgba(255,255,255,.9); font-size:13px; }
+
+/* collapse like in mock: slide left but keep a small tab visible */
+.nav-panel[data-collapsed="true"]{
+  transform: translateX(calc(-100% + 56px));
+}
+.nav-panel[data-collapsed="true"] .panel-title{ opacity:0; pointer-events:none; }
