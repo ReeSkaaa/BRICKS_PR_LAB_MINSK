@@ -625,7 +625,8 @@
 
 .card-actions {
   display: flex;
-  gap: 10px;
+  gap: 12px;
+  width: 100%;
 }
 
 .btn-primary {
@@ -665,4 +666,30 @@
 
 .rating-value {
   font-weight: 700;
+}
+
+
+.card-actions .btn-primary,
+.card-actions .btn-ghost {
+    flex: 1; 
+    min-width: 0; 
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 12px 8px; 
+    box-sizing: border-box;
+}
+
+
+.card-actions.fixed-width {
+    display: flex;
+    gap: 12px;
+    justify-content: space-between;
+}
+
+.card-actions.fixed-width .btn-primary,
+.card-actions.fixed-width .btn-ghost {
+    width: calc(50% - 6px); 
+    flex: none;
 }
