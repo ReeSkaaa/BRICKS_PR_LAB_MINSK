@@ -1,0 +1,142 @@
+/*Base*/
+@font-face {
+  font-family: "Gilroy bold";
+  src: url("../font/Gilroy-Bold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Gilroy medium";
+  src: url("../font/Gilroy-Medium.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Gilroy semibold";
+  src: url("../font/Gilroy-Semibold.woff2") format("woff2");
+}
+
+.section-title h1 {
+    margin-top: 0px;
+}
+
+.section-title {
+    font-family: "Gilroy bold", sans-serif;
+    padding: 40px 220px 40px;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin: 0 auto;
+    padding: 0 44px 27px 44px;
+    max-width: 1800px;
+    justify-content: flex-start;
+    align-items: stretch;
+    
+}
+
+.card {
+    width: calc(33% - 14px);
+    min-height: 270px;
+    border-radius: 24px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.card:hover{ 
+    transform: translateY(-8px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+
+}
+/*different colors for cards*/
+.card-1 {
+    background-color: #506CEB;
+}
+.card-2 {
+    background-color: rgba(138, 151, 207, 1);
+}
+.card-3 {
+    background-color: rgba(80, 108, 235, 1);
+}
+.card-4 {
+    background-color: rgba(161, 179, 255, 1);
+}
+.card-5 {
+    background-color: rgba(80, 108, 235, 1);
+}
+.card-6 {
+    background-color: rgba(21, 45, 154, 1);
+}
+.card-meta {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.metric-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.metric-icon {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+}
+
+.module-count, .hours-count {
+    font-family: "Gilroy semibold", sans-serif;
+    font-size: 16px;
+    color: #fff;
+}
+
+.card-title {
+    font-family: "Gilroy bold", sans-serif;
+    color: #fff;
+    line-height: 1.4;
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.card-description {
+    font-family: "Gilroy semibold", sans-serif;
+    font-size: 14px;
+    color: #fff;
+    line-height: 1.2;
+    flex-grow: 1;
+    margin-bottom: 10px;
+}
+
+
+.card-footer {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: auto;
+}
+
+.card-more {
+    font-family: "Gilroy semibold", sans-serif;
+    font-size: 15px;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 24px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.25);
+   
+}
+
+.card-more:hover {
+    background: rgba(255, 255, 255, 0.35);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    color: white;
+    
+
+
+}
