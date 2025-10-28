@@ -13,6 +13,10 @@
   font-family: "Gilroy semibold";
   src: url("../font/Gilroy-Semibold.woff2") format("woff2");
 }
+@font-face {
+  font-family: "Gilroy regular";
+  src: url("../font/Gilroy-Regular.woff2") format("woff2");
+}
 
         /* Общие стили */
         * {
@@ -38,6 +42,11 @@
         h1, h2, h3 {
             margin-bottom: 20px;
         }
+        h2{
+            color: #506CEB;
+            font-family: "Gilroy bold", sans-serif;
+            font-size: 44px;
+        }
         
         p {
             margin-bottom: 15px;
@@ -54,13 +63,15 @@
         }
         
         .banner {
-            background: #506CEB;
+              background: url('/PICS_LOGOs/banner_img_open.png') right center / auto 100% no-repeat, #506CEB;
             padding: 60px 0 80px;
             border-radius: 0 0 30px 30px;
             position: relative;
             overflow: hidden;
             margin-bottom: 40px;
-        }
+            min-height: 400px; /* Добавляем минимальную высоту */
+            max-height: 500px; /* Ограничиваем максимальную высоту */
+                }
         
         .banner-content {
             position: relative;
@@ -171,21 +182,27 @@
         }
         
         #about {
+            font-family: "Gilroy semibold", sans-serif;
+            font-size: 25px;
             padding: 40px;
             margin-top: -40px;
             position: relative;
             z-index: 3;
         }
+
         
         .skills-list {
-            margin-top: 30px;
+            margin-top: -5px;
+        }
+        .skills-list-cert{
+            margin-top: auto;
         }
         
         .skill-item {
             display: flex;
             align-items: flex-start;
-            margin-bottom: 15px;
-            padding: 10px;
+            margin-bottom: 10px;
+            padding: 4px;
             border-radius: 5px;
             transition: background-color 0.3s;
         }
@@ -195,7 +212,7 @@
         }
         
         .checkmark {
-            color: #27ae60;
+            color: #506CEB;
             margin-right: 10px;
             font-weight: bold;
             font-size: 1.2rem;
@@ -203,7 +220,7 @@
         
         
         
-        #instructors, #certificate, #reviews{
+        #instructors, #reviews{
             padding: 40px;
             margin-bottom: 30px;
         }
@@ -212,7 +229,7 @@
     font-size: 16px;
     color: #fff;
 }
-/* Программа */
+
 .program-features {
     display: flex;
     flex-wrap: wrap;
@@ -225,9 +242,13 @@
     min-width: 300px;
     padding: 30px;
     background-color: white;
-    border-radius: 15px;
+    border-radius: 21px;
+    border: 2px solid #506CEB;
     box-shadow: 0 5px 15px rgba(0,0,0,0.05);
     transition: transform 0.3s;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
 }
 
 .feature:hover {
@@ -246,12 +267,12 @@
     color: #3498db;
 }
 .programmod{
-  margin-bottom: 1px;
+  margin-bottom: 0.1px;
 }
 
 .feature-comment {
-            display: flex;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
             margin-top: 40px;
         }
@@ -263,6 +284,7 @@
             background-color: #D8DFFF;
             border-radius: 15px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            min-height: 400px;
         }
         
         .comment h3 {
@@ -280,3 +302,259 @@
           height: 60px;
           width: 60px;
         }
+.banner-nav {
+    margin: 30px 0;
+}
+
+.banner-nav nav {
+    width: 100%;
+}
+
+.nav-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.nav-row {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.metadata {
+    background-color: rgba(255, 255, 255, 0.25);
+    padding: 14px 25px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.metadata a {
+    color: white;
+    text-decoration: none;
+    font-family: "Gilroy medium", sans-serif;
+    display: block;
+}
+
+.metadata:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-2px);
+}
+
+
+.feature-icon-container {
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+}
+
+.feature-icon {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}
+
+.feature-content {
+    flex: 1;
+}
+
+.feature h3 {
+    margin-bottom: 10px;
+    font-size: 23px;
+    font-family: "Gilroy semibold", sans-serif;
+}
+
+.feature p {
+    font-family: "Gilroy regular", sans-serif;
+    margin-bottom: 1px;
+    line-height: 1.1;
+    font-size: 16px;
+}
+
+.programmod {
+    margin-bottom: 5px;
+    line-height: 1.4;
+}
+.user-info {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.feature-icon-user {
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+}
+
+.feature-icon-user img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.user-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.username {
+    font-family: "Gilroy bold", sans-serif;
+    font-size: 16px;
+    margin: 0;
+    color: #000;
+}
+
+.userwork {
+    font-family: "Gilroy medium", sans-serif;
+    font-size: 14px;
+    margin: 5px 0 0 0;
+    color: #666;
+}
+
+.comment-icon {
+    margin-bottom: 15px;
+}
+
+.comment-text {
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+}
+
+.user-avatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.spacer {
+    flex: 1; 
+    min-height: 7px; 
+}
+.spacer-2{
+    flex: 1; 
+    min-height: 40px; 
+}
+.check{
+    font-family: "Gilroy semibold", sans-serif;
+    margin-bottom: 1px;
+    line-height: 1.1;
+    font-size: 18px;
+    
+}
+
+#certificate {
+      padding: 0 0 60px 0;
+    background-color: #fff;
+}
+
+.certificate-container {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.certificate-image {
+    flex: 2; 
+    display: flex;
+    justify-content: center;
+}
+
+.certificate-image img {
+    max-width: 95%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.certificate-content {
+    flex: 1; 
+}
+
+.certificate-text {
+    font-family: "Gilroy regular", sans-serif;
+    
+}
+
+.certificate-text p {
+    font-family: "Gilroy regular", sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+#instructors {
+    padding: 0;
+}
+.teachers-staircase {
+    position: relative;
+    height: 600px;
+    margin-top: 60px;
+}
+
+.teacher-item {
+    position: absolute;
+    width: 690px; 
+    height: 150px;
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+/* Первый блок - справа СНИЗУ */
+.teacher-item:nth-child(1) {
+    right: 0;
+    bottom: 50px;
+    z-index: 1;
+}
+
+/* Второй блок - по центру ВЫШЕ */
+.teacher-item:nth-child(2) {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+/* Третий блок - слева САМЫЙ ВЕРХНИЙ */
+.teacher-item:nth-child(3) {
+    left: 0;
+    top: 50px;
+    z-index: 3;
+}
+
+.teacher-photo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.teacher-content {
+    flex: 1;
+}
+
+.teacher-title {
+    font-family: "Gilroy semibold", sans-serif;
+    font-size: 20px;
+    margin: 0 0 12px 0;
+    line-height: 1.2;
+}
+
+.teacher-description {
+    font-family: "Gilroy regular", sans-serif;
+    line-height: 1.4;
+    margin: 0;
+    font-size: 18px;
+}
