@@ -160,3 +160,34 @@ visitedGrid.innerHTML = VISITED.map(v => `
 
 });
 
+
+// Function to update progress
+function updateProgress(progress, maxProgress) {
+  const valueEl = document.getElementById('prValue');
+  const progressBar = document.getElementById('prBar');
+  const starsEl = document.getElementById('prStars');
+
+  // Calculate progress percentage
+  const percentage = (progress / maxProgress) * 100;
+
+  // Update progress bar width
+  progressBar.style.width = `${percentage}%`;
+
+  // Update stars
+  starsEl.querySelectorAll('i').forEach((star, index) => {
+    if (index < Math.floor(percentage / 25)) {
+      star.classList.add('active');
+    } else {
+      star.classList.remove('active');
+    }
+  });
+
+  valueEl.textContent = `${progress} из ${maxProgress}`;
+}
+
+// Example: setting progress to 50
+updateProgress(50, 100);
+
+
+
+

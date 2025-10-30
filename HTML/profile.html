@@ -65,34 +65,74 @@
 
         <!-- Portfolio carousel -->
         <section class="card portfolio-card">
-          <header class="card-head">
-            <h2>Портфолио</h2>
-            <div class="arrows">
-              <button class="arrow" id="portPrev" aria-label="Назад"><i class="fa-solid fa-angle-left"></i></button>
-              <button class="arrow" id="portNext" aria-label="Вперёд"><i class="fa-solid fa-angle-right"></i></button>
-            </div>
-          </header>
+        <header class="card-head">
+          <h2>Портфолио</h2>
+          <div class="arrows">
+            <button class="arrow" id="portPrev" aria-label="Назад"><i class="fa-solid fa-angle-left"></i></button>
+            <button class="arrow" id="portNext" aria-label="Вперёд"><i class="fa-solid fa-angle-right"></i></button>
+          </div>
+        </header>
 
-          <div class="port-viewport">
-            <div class="port-track" id="portTrack">
-              <!-- 6 placeholders (replace with real works) -->
-              <div class="port-item"></div>
-              <div class="port-item"></div>
-              <div class="port-item"></div>
-              <div class="port-item"></div>
-              <div class="port-item"></div>
-              <div class="port-item"></div>
-              <div class="port-item"></div>
-              <div class="port-item"></div>
+        <div class="port-viewport">
+          <div class="port-track" id="portTrack">
+            <!-- 6 placeholders (replace with real works) -->
+            <div class="port-item">
+              <img src="/PICS_LOGOs/image1.png" alt="Portfolio Item 1">
+            </div>
+            <div class="port-item">
+              <img src="/PICS_LOGOs/image2.png" alt="Portfolio Item 2">
+            </div>
+            <div class="port-item">
+              <img src="/PICS_LOGOs/image3.png" alt="Portfolio Item 3">
+            </div>
+            <div class="port-item">
+              <img src="/PICS_LOGOs/image4.png" alt="Portfolio Item 4">
+            </div>
+            <div class="port-item">
+              <img src="/PICS_LOGOs/image5.png" alt="Portfolio Item 5">
+            </div>
+            <div class="port-item">
+              <img src="/PICS_LOGOs/image6.png" alt="Portfolio Item 6">
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <!-- Documents grid with its own scrollbar ""-->
-        <section class="card docs-card">
-          <h2>Документы</h2>
-          <div class="docs-scroll" id="docsScroll"><!-- filled by JS --></div>
-        </section>
+        <!-- ROW: Documents + Progress -->
+          <div class="row-split">
+            <!-- Documents grid with its own scrollbar -->
+            <section class="card docs-card">
+              <h2>Документы</h2>
+              <div class="docs-scroll" id="docsScroll"><!-- filled by JS --></div>
+            </section>
+
+            <!-- Progress card -->
+            <section class="card progress-card" id="progressCard" aria-labelledby="prTitle">
+              <div class="pr-hero">
+                <!-- Your own image; replace path if needed -->
+                <img src="/PICS_LOGOs/trophy-icon.svg" alt="" onerror="this.remove()">
+                <!-- Fallback mini SVG if the image is missing -->
+              </div>
+
+              <div class="pr-center">
+                <div class="pr-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+                  <span id="prBar" style="width:50%"></span>
+                </div>
+
+                <div class="pr-title" id="prTitle">Прогресс: <span id="prValue">50</span></div>
+
+                <div class="pr-stars" id="prStars" aria-label="Уровень">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </div>
+              </div>
+            </section>
+
+
+
+          </div>
 
       </div>
 

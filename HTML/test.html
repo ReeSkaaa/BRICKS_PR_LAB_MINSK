@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Тестирование</title>
+
+  <link rel="stylesheet" href="/CSS/test.css?v=1">
+  <link rel="stylesheet" href="/CSS/header_footer.css?v=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+
+  <!-- header partial -->
+  <div data-include="/partials/header.html"></div>
+
+  <main class="test-stage">
+
+    <header class="card-head">
+        <h2>Тестирование</h2>
+    </header>
+
+    <div class="test-shell">
+      <!-- Test Questions -->
+      <section class="card test-card">
+
+        <div id="testQuestions">
+          <!-- Question content will be dynamically filled here -->
+        </div>
+                    
+        <!-- Navigation Buttons -->
+        <div class="nav-buttons">
+          <button id="prevButton" class="btn-nav">Предыдущий</button>
+          <button id="nextButton" class="btn-nav">Следующий</button>
+        </div>
+
+        <!-- Results Section -->
+        <div id="testResult" class="result-section" style="display:none;">
+          <h3>Ваши результаты:</h3>
+          <p id="scoreText"></p>
+          <p id="resultDetails"></p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- footer partial -->
+  <div data-include="/partials/footer.html"></div>
+
+  <script src="/JS/test.js?v=1"></script>
+  <script src="/JS/main.js"></script>
+</body>
+</html>

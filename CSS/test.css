@@ -1,0 +1,171 @@
+/* Basic styling for the test page */
+
+.card-head h2 {
+  font-size: 40px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #4a60e0;  /* Match the title color */
+  font-weight: bold;
+}
+
+.test-stage {
+  padding: 20px;
+}
+
+.test-shell {
+  width: 988px;
+  height: 536px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.test-card {
+  margin-bottom: 20px;
+}
+
+
+.test-card p {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* Navigation buttons */
+.nav-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px; /* Add space between the last option and the buttons */
+}
+
+.nav-buttons .btn-nav {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #4a6ef0;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.nav-buttons .btn-nav:hover {
+  background-color: #3450b3;
+}
+
+/* Add margin to buttons for extra spacing */
+.nav-buttons .btn-nav {
+  margin-top: 10px; /* Space between the button and the options above */
+}
+
+
+.result-section {
+  padding: 20px;
+  background-color: #f4f6ff;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+.result-section h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.result-section p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* Disabled button */
+.btn-nav:disabled {
+  background-color: #e0e0e0;
+  cursor: not-allowed;
+}
+
+/* Style for Questions */
+.question-container {
+  margin-bottom: 30px;   /* space between questions */
+  padding: 16px 20px;
+  border: 1px solid #e6e6e6;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+}
+
+.question-number {
+  font-size: 24px;
+  font-weight: 500;
+  color: #000000;
+  display: inline-block;
+}
+
+.question-text {
+  font-size: 30px;
+  font-weight: bold;
+  color: #000000;
+  margin-bottom: 25px;
+}
+
+/* Answer options styles */
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* space between options */
+}
+
+.option {
+  display: flex;
+  align-items: flex-start;
+  padding: 12px;
+  border: 2px solid #CDCDCD;
+  border-radius: 1px;
+  background-color: #ffffff;
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.option:hover {
+  background-color: #f0f4ff;
+  border-color: #CDCDCD;
+}
+
+.option input[type="radio"] {
+  margin-right: 10px;
+}
+
+/* Adjusting letter and answer text */
+.option .letter {
+  font-weight: normal;
+  margin-right: 12px;  /* Space between letter and text */
+}
+
+.option .text {
+  flex-grow: 1;  /* Text takes up the remaining space */
+}
+
+/* Option selected style */
+.option.selected {
+  background-color: #e8edff;
+  border-color: #4a60e0;
+}
+
+/* Result section font size and styles */
+.result-section {
+  padding: 20px;
+  background-color: #f4f6ff;
+  border-radius: 12px;
+  margin-top: 20px;
+}
+
+.result-section h3 {
+  font-size: 22px;
+  color: #4a60e0;
+  font-weight: 700;
+}
+
+.result-section p {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+}
+
+
