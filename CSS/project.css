@@ -1,3 +1,25 @@
+@font-face {
+  font-family: 'Gilroy bold';
+  src: url('../font/Gilroy-Bold.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Gilroy medium';
+  src: url('../font/Gilroy-Medium.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Gilroy semibold';
+  src: url('../font/Gilroy-Semibold.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Gilroy regular';
+  src: url('../font/Gilroy-Regular.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Gilroy bold2';
+  src: url('../font/Gilroy-Bold.woff') format('woff');
+}
+
+
 :root{
   --proj-blue-main:#4357d9;        /* normal card bg */
   --proj-blue-dark:#0f1b78;        /* dark middle card */
@@ -26,9 +48,8 @@
 
 /* title "Проекты" */
 .projects-title {
-  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
-  font-size: 32px;
-  font-weight: 700;
+  font-family: 'Gilroy bold2', sans-serif; 
+  font-size: 40px;
   color: #000;
   margin: 0 0 32px;
 }
@@ -42,7 +63,7 @@
 
 /* single card */
 .project-card {
-  border-radius: var(--radius-card);
+  border-radius: 23px;
   padding: 24px;
   box-shadow: var(--shadow-card);
   color: var(--text-white);
@@ -71,7 +92,6 @@
   height: 70px;
   border-radius: 50%;
   background:#dcdcdc;
-  border: 0px solid rgba(255,255,255,.3);
   box-shadow:0 4px 10px rgba(0,0,0,.3);
   flex-shrink:0;
   object-fit: cover;
@@ -79,9 +99,8 @@
 
 /* project text block */
 .project-text-headline {
-  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
-  font-size: 20px;
-  font-weight: 600;
+  font-family: 'Gilroy bold', sans-serif; 
+  font-size: 23px;
   line-height: 1.35;
   color: var(--text-white);
   text-shadow: var(--text-shadow);
@@ -90,9 +109,8 @@
 
 /* short description line under title */
 .project-desc {
-  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
-  font-size: 18px;
-  font-weight: 500;
+font-family: 'Gilroy semibold', sans-serif;   
+font-size: 18px;
   line-height: 1.4;
   color: var(--text-white);
   margin-bottom: 24px;
@@ -104,19 +122,20 @@
   margin-top: auto;
   display: flex;
   flex-wrap: wrap;
-  gap: 76px;
+  gap: 25px;
 }
 
 /* buttons */
 .btn-more {
-  background: var(--btn-blue);
+  font-family: 'Gilroy bold', sans-serif; 
+  background: rgba(255, 255, 255, 0.25);
   color:#fff;
-  font-weight:600;
   font-size:16px;
   line-height:1.2;
   border:none;
   border-radius: var(--radius-btn);
   padding:14px 20px;
+  width: 160px;
   box-shadow: var(--shadow-btn);
   cursor:pointer;
 }
@@ -130,6 +149,7 @@
   border:none;
   border-radius: var(--radius-btn);
   padding:14px 20px;
+  width: 160px;
   box-shadow: var(--shadow-btn);
   cursor:pointer;
 }

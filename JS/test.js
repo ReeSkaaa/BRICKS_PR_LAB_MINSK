@@ -174,7 +174,7 @@ document.addEventListener('DOMContentLoaded', function () {
         margin:16px 0 10px;
         text-align:center;
       ">Ваш сертификат</h4>
-      <img src="/PICS_LOGOs/certificate.png"
+      <img src="/PICS_LOGOs/certif.png"
            alt="Сертификат"
            style="
              max-width:100%;
