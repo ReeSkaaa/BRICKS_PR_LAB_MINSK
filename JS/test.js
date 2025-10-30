@@ -143,13 +143,60 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Show the result at the end
   function showResult() {
-    const score = calculateScore();
-    document.getElementById('testResult').style.display = 'block';
-    document.getElementById('scoreText').innerHTML = `Вы набрали ${score} из ${totalQuestions}`;
-    document.getElementById('resultDetails').innerHTML = `Правильные ответы: ${score}`;
-    document.getElementById('testQuestions').style.display = 'none';
-    document.querySelector('.nav-buttons').style.display = 'none';
+  const score = calculateScore();                // how many correct
+  const total = totalQuestions;                  // 8 for you
+  const percent = Math.round((score / total) * 100);
+
+  // show result box
+  const resultBox = document.getElementById('testResult');
+  const scoreText = document.getElementById('scoreText');
+  const resultDetails = document.getElementById('resultDetails');
+  const certBlock = document.getElementById('certificateContainer');
+
+  resultBox.style.display = 'block';
+  document.getElementById('testQuestions').style.display = 'none';
+  document.querySelector('.nav-buttons').style.display = 'none';
+
+  // write main result text
+  scoreText.textContent = `Вы набрали ${score} из ${total} (${percent}%)`;
+  resultDetails.textContent = percent >= 80
+    ? "Отлично! Тест пройден ✅"
+    : "Тест не пройден. Попробуйте ещё раз.";
+
+  // handle certificate
+  if (percent >= 80) {
+    certBlock.style.display = 'block';
+    certBlock.innerHTML = `
+      <h4 style="
+        font-size:18px;
+        font-weight:600;
+        color:#1e1e1e;
+        margin:16px 0 10px;
+        text-align:center;
+      ">Ваш сертификат</h4>
+      <img src="/PICS_LOGOs/certificate.png"
+           alt="Сертификат"
+           style="
+             max-width:100%;
+             height:auto;
+             border:1px solid #ddd;
+             border-radius:12px;
+             box-shadow:0 8px 20px rgba(0,0,0,0.08);
+             display:block;
+             margin:0 auto 10px;
+           ">
+      <p style="
+        font-size:14px;
+        color:#555;
+        text-align:center;
+        margin:0;
+      ">Вы можете скачать и сохранить этот сертификат.</p>
+    `;
+  } else {
+    certBlock.style.display = 'none';
+    certBlock.innerHTML = '';
   }
+}
 
   // Calculate score
   function calculateScore() {

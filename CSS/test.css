@@ -14,7 +14,7 @@
 
 .test-shell {
   width: 988px;
-  height: 536px;
+  height: 700px;
   margin: 0 auto;
   background-color: #fff;
   padding: 20px;
@@ -154,10 +154,11 @@
   background-color: #f4f6ff;
   border-radius: 12px;
   margin-top: 20px;
+  height: 640px;
 }
 
 .result-section h3 {
-  font-size: 22px;
+  font-size: 25px;
   color: #4a60e0;
   font-weight: 700;
 }
@@ -168,4 +169,14 @@
   color: #333;
 }
 
+.certificate-block {
+  margin-top: 24px;
+  padding: 20px;
+  background-color: #FFFFFF;
+  border: 1px solid #e2e6ff;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.06);
+  width: 500px;
+  height: 450px;
+}
 

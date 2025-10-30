@@ -1,0 +1,156 @@
+:root{
+  --proj-blue-main:#4357d9;        /* normal card bg */
+  --proj-blue-dark:#0f1b78;        /* dark middle card */
+  --proj-blue-light:#aebaf7;       /* light card */
+  --text-white:#ffffff;
+  --btn-blue:#5a6df4;
+  --btn-green:#4cc142;
+  --radius-card:16px;
+  --radius-btn:8px;
+  --shadow-card:0 24px 50px rgba(18,24,80,.12);
+  --shadow-btn:0 8px 20px rgba(0,0,0,.25);
+  --text-shadow:none;
+  --bg-page:#ffffff;
+}
+
+/* page wrapper */
+.projects-stage {
+  background: var(--bg-page);
+  padding: 40px 16px 80px;
+}
+
+.projects-shell {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+/* title "Проекты" */
+.projects-title {
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: #000;
+  margin: 0 0 32px;
+}
+
+/* grid of cards */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(min(360px,100%),1fr));
+  gap: 28px 28px;
+}
+
+/* single card */
+.project-card {
+  border-radius: var(--radius-card);
+  padding: 24px;
+  box-shadow: var(--shadow-card);
+  color: var(--text-white);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  min-height: 260px;
+}
+
+/* background variations */
+.project-card.bg-main   { background: var(--proj-blue-main); }
+.project-card.bg-dark   { background: var(--proj-blue-dark); }
+.project-card.bg-light  { background: var(--proj-blue-light); color:#fff; }
+
+/* header: avatar + text block stacked to the right on mobile column? no — in design it's avatar left text right stacked vertical */
+.project-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+/* round avatar placeholder */
+.project-avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background:#dcdcdc;
+  border: 0px solid rgba(255,255,255,.3);
+  box-shadow:0 4px 10px rgba(0,0,0,.3);
+  flex-shrink:0;
+  object-fit: cover;
+}
+
+/* project text block */
+.project-text-headline {
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--text-white);
+  text-shadow: var(--text-shadow);
+  white-space: pre-line; /* allows "кто, когда, где" to break line */
+}
+
+/* short description line under title */
+.project-desc {
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--text-white);
+  margin-bottom: 24px;
+  text-shadow: var(--text-shadow);
+}
+
+/* footer buttons row */
+.project-actions {
+  margin-top: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 76px;
+}
+
+/* buttons */
+.btn-more {
+  background: var(--btn-blue);
+  color:#fff;
+  font-weight:600;
+  font-size:16px;
+  line-height:1.2;
+  border:none;
+  border-radius: var(--radius-btn);
+  padding:14px 20px;
+  box-shadow: var(--shadow-btn);
+  cursor:pointer;
+}
+
+.btn-join {
+  background: var(--btn-green);
+  color:#fff;
+  font-weight:600;
+  font-size:16px;
+  line-height:1.2;
+  border:none;
+  border-radius: var(--radius-btn);
+  padding:14px 20px;
+  box-shadow: var(--shadow-btn);
+  cursor:pointer;
+}
+
+/* light card tweaks (text is still white in mock!) */
+.project-card.bg-light .btn-more {
+  background: rgba(255,255,255,.25);
+  color:#fff;
+  box-shadow: var(--shadow-btn);
+}
+.project-card.bg-light .btn-join {
+  background: var(--btn-green);
+  color:#fff;
+}
+
+/* responsive spacing */
+@media (max-width:600px){
+  .projects-stage { padding:24px 12px 60px; }
+  .projects-title { font-size:28px; margin-bottom:24px; }
+  .project-card   { padding:20px; min-height:auto; }
+  .project-text-headline { font-size:18px; }
+  .project-desc { font-size:18px; }
+  .btn-more,.btn-join { font-size:15px; padding:12px 16px; }
+}

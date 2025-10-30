@@ -70,9 +70,9 @@
     </select>
   </label>
 
-  <button class="filter-btn" type="button">
-    <i class="fa-solid fa-sliders"></i>&nbsp;Фильтр
-</button>
+    <button class="filter-btn" id="openFilterModal" type="button">
+      <i class="fa-solid fa-sliders"></i>&nbsp;Фильтр
+    </button>
     
 
     <!-- Categories -->
@@ -87,6 +87,52 @@
     <div class="place-list" id="place-list"></div>
   </div>
 </aside>
+
+  <button class="filter-btn" id="openFilterModal" type="button">
+    <i class="fa-solid fa-sliders"></i>&nbsp;Фильтр
+  </button>
+
+
+<!-- Filter Modal -->
+<div class="filter-modal" id="filterModal" hidden>
+  <div class="filter-modal-backdrop" id="filterBackdrop"></div>
+  <div class="filter-modal-window">
+    <div class="filter-modal-header">
+      <div class="filter-modal-title">Фильтр</div>
+      <button class="filter-modal-close" id="filterClose" aria-label="Закрыть">&times;</button>
+    </div>
+
+    <div class="filter-modal-section">
+      <div class="filter-modal-label">Категория</div>
+      <div class="filter-modal-options">
+        <label class="filter-option">
+          <input type="radio" name="catFilter" value="all">
+          <span>Все</span>
+        </label>
+
+        <label class="filter-option">
+          <input type="radio" name="catFilter" value="restaurant">
+          <span>Россотрудничество</span>
+        </label>
+
+        <label class="filter-option">
+          <input type="radio" name="catFilter" value="park">
+          <span>Движение первых</span>
+        </label>
+
+        <label class="filter-option">
+          <input type="radio" name="catFilter" value="cafe">
+          <span>Международное молодёжное сотрудничество</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="filter-modal-footer">
+      <button class="filter-apply-btn" id="filterApplyBtn">Применить</button>
+    </div>
+  </div>
+</div>
+
 
       <!-- Map -->
       <div class="rf-map" id="rfMap">
