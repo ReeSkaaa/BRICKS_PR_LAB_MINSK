@@ -1,0 +1,129 @@
+@font-face {
+  font-family: 'Gilroy bold';
+  src: url('../font/Gilroy-Bold.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Gilroy medium';
+  src: url('../font/Gilroy-Medium.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Gilroy semibold';
+  src: url('../font/Gilroy-Semibold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Gilroy regular';
+  src: url('../font/Gilroy-Regular.woff2') format('woff2');
+}
+
+.comments-section {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.comments-title {
+  font-family: 'Gilroy bold', sans-serif;
+  font-size: 40px;
+  margin-bottom: 30px;
+  color: #506CEB;
+  text-align: left;
+}
+
+.comments-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.comment-item {
+  display: flex;
+  align-items: flex-start;
+  background: #fff;
+  padding: 30px 0;
+  min-height: 180px;
+  width: 100%;
+  border-bottom: 3px solid #E6E6E6;
+  position: relative;
+}
+
+.comment-item:last-child {
+  border-bottom: none;
+}
+
+.comment-avatar {
+  flex-shrink: 0;
+  width: 147px;
+  height: 147px;
+  margin-right: 25px;
+}
+
+.comment-avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #f0f0f0;
+  object-position: center 15%;
+}
+
+.comment-user-info {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  text-align: left;
+  width: 300px; 
+  margin-right: 40px; 
+}
+
+.comment-user-name {
+  font-family: 'Gilroy semibold', sans-serif;
+  font-size: 23px;
+  margin-bottom: 8px;
+}
+
+.comment-user-faculty {
+  color: #666;
+  font-family: 'Gilroy regular', sans-serif;
+  font-size: 23px;
+  margin-bottom: 5px;
+}
+
+.comment-user-department {
+  font-family: 'Gilroy regular', sans-serif;
+  font-size: 23px;
+  margin-bottom: 5px;
+  color: #666;
+}
+
+.comment-user-country {
+  color: #666;
+  font-family: 'Gilroy regular', sans-serif;
+  font-size: 23px;
+}
+
+.comment-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  min-width: 400px;
+}
+
+.comment-text {
+  font-family: 'Gilroy bold', sans-serif;
+  line-height: 1.3;
+  font-size: 28px;
+  text-align: left;
+  margin: 0;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  width: 100%;
+}
+.comment-user-country::after {
+    font-family: "Segoe UI Emoji", "Apple Color Emoji", sans-serif;
+    margin-left: 8px;
+}
+
+.country-india::after { content: "🇮🇳"; }
+.country-china::after { content: "🇨🇳"; }
+.country-brazil::after { content: "🇧🇷"; }
