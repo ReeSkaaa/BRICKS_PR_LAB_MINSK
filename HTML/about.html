@@ -4,16 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>О нас</title>
-   <link rel="stylesheet" href="/CSS/about.css">
+  <link rel="stylesheet" href="/CSS/about.css">
   <link rel="stylesheet" href="/CSS/header_footer.css?v=1" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link rel="stylesheet" href="path/to/font-awesome/css/all.min.css">
-    
 </head>
 
 <body>
     <!-- ===== HEADER ===== -->
   <div data-include="/partials/header.html"></div>
+  
   <!-- ===== MAIN CONTENT ===== -->
   <main>
     <section class="hero-section">
@@ -21,9 +20,9 @@
         <div class="hero-content">
           <!-- SLIDER LEFT SIDE-->
           <div class="hero-left">
-            <p class="page-name">О нас</p>
-            <h1 class="hero-title">Путеводная нить к русской душе</h1>
-            <p class="hero-description">
+            <p class="page-name" data-key="aboutPage">О нас</p>
+            <h1 class="hero-title" data-key="heroTitle">Путеводная нить к русской душе</h1>
+            <p class="hero-description" data-key="heroDescription">
               Наша платформа собрала лучшие российские инициативы федеральных органов исполнительной власти и других организаций 
               в сфере международной молодёжной политики для стран БРИКС. Персонализированные модули "Название платформы" предоставляют представителям политических, общественных, научных и деловых кругов краткосрочные поездки в Россию программы "Новое поколение". И это еще не все! Пользователям открывается широкая библиотека вебинаров, лекций 
               и интенсивов в области медиаграмотности 
@@ -56,7 +55,7 @@
                 <!-- Минибаннер 1 -->
                 <div class="mini-banner">
                   <h3 class="mini-banner-title">100</h3>
-                  <p class="mini-banner-text">
+                  <p class="mini-banner-text" data-key="travelDirections">
                     Направлений поездок
                   </p>
                 </div>
@@ -64,7 +63,7 @@
                 <!-- Минибаннер 2 -->
                 <div class="mini-banner">
                   <h3 class="mini-banner-title">50</h3>
-                  <p class="mini-banner-text">
+                  <p class="mini-banner-text" data-key="annualEvents">
                     Ежегодных мероприятий
                   </p>
                 </div>
@@ -72,7 +71,7 @@
                 <!-- Минибаннер 3 -->
                 <div class="mini-banner">
                   <h3 class="mini-banner-title">2000</h3>
-                  <p class="mini-banner-text">
+                  <p class="mini-banner-text" data-key="foreignParticipants">
                     Иностранных участников
                   </p>
                 </div>
@@ -80,7 +79,7 @@
                 <!-- Минибаннер 4 -->
                 <div class="mini-banner">
                   <h3 class="mini-banner-title">1000+</h3>
-                  <p class="mini-banner-text">
+                  <p class="mini-banner-text" data-key="libraryRecords">
                     Записей в библиотеке
                   </p>
                 </div>
@@ -91,9 +90,41 @@
       </div>
     </section>
   </main>
- <!-- ===== FOOTER ===== -->
+  
+  <!-- ===== FOOTER ===== -->
   <div data-include="/partials/footer.html"></div>
+  
+  <!-- Подключаем скрипты -->
+  <script src="/JS/translations.js"></script>
+  <script src="/JS/language-switcher.js"></script>
   <script src="/JS/main.js"></script>
   <script src="/JS/main_page.js"></script>
+  
+  <!-- Дополнительный скрипт для обработки динамически загруженных элементов -->
+  <script>
+    // Если используется динамическая загрузка элементов (data-include)
+    // можно добавить наблюдение за изменениями DOM
+    let observer = new MutationObserver(function(mutations) {
+      mutations.forEach(function(mutation) {
+        if (mutation.addedNodes.length) {
+          // Принудительно обновляем переводы при добавлении новых элементов
+          setTimeout(() => {
+            if (window.languageSwitcher) {
+              window.languageSwitcher.refreshTranslations();
+            }
+          }, 200);
+        }
+      });
+    });
+
+    // Начинаем наблюдение
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true
+    });
+
+    // Делаем languageSwitcher глобально доступным
+    window.languageSwitcher = languageSwitcher;
+  </script>
 </body>
 </html>

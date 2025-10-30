@@ -83,15 +83,7 @@ function initLangSwitcher() {
     // optional UI text swap for auth buttons (kept from your code)
     const login = document.querySelector(".login-btn");
     const reg   = document.querySelector(".register-btn");
-    if (login && reg) {
-      if (lang === "en") {
-        login.innerHTML = '<i class="fas fa-user"></i> Log in';
-        reg.textContent = "Sign up";
-      } else {
-        login.innerHTML = '<i class="fas fa-user"></i> Войти';
-        reg.textContent = "Регистрация";
-      }
-    }
+   
   }
 }
 

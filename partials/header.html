@@ -4,9 +4,9 @@
       <button class="menu-btn" id="menuToggle" aria-label="Открыть меню" aria-expanded="false" aria-controls="megaMenu">
         <img src="/PICS_LOGOs/menu_button.png" alt="Меню">
       </button>
-       <a href="main.html" class="icon-link">
-      <img src="/PICS_LOGOs/logo.png" alt="Site Logo" class="header-logo">
-        </a>
+      <a href="main.html" class="icon-link">
+        <img src="/PICS_LOGOs/logo.png" alt="Site Logo" class="header-logo">
+      </a>
       <div class="date-box">
         <img src="/PICS_LOGOs/calendar_header.png" alt="Календарь" class="date-icon">
         <span class="header-date">12.10.25</span>
@@ -19,19 +19,20 @@
           <span class="lang-current">RU</span> <i class="fa-solid fa-caret-down"></i>
         </button>
         <ul class="lang-menu" id="langMenu" role="listbox" aria-label="Language">
-          <li role="option" data-lang="ru">RU</li>
-          <li role="option" data-lang="en">EN</li>
+          <li role="option" data-lang="ru">Русский</li>
+          <li role="option" data-lang="en">English</li>
+          <li role="option" data-lang="hi">हिन्दी</li>
+          <li role="option" data-lang="zh">中文</li>
         </ul>
       </div>
 
       <button class="login-btn" onclick="window.location.href='/HTML/login.html'">
-        <i class="fas fa-user"></i> Войти
+        <i class="fas fa-user"></i> <span data-key="login">Войти</span>
       </button>
 
       <button class="register-btn" onclick="window.location.href='/HTML/register.html'">
-        <i class="fas fa-user"></i> Регистрация
+        <i class="fas fa-user"></i> <span data-key="register">Регистрация</span>
       </button>
-
     </div>
   </div>
 
@@ -42,39 +43,45 @@
     <div class="mega-inner">
       <section class="menu-section">
         <section class="nav-section">
-        <h3 class="menu-caption"><span class="cap-ico alt"><i class="fa fa-compass"></i></span> Навигация по сайту</h3>
+          <h3 class="menu-caption">
+            <span class="cap-ico alt"><i class="fa fa-compass"></i></span> 
+            <span data-key="siteNavigation">Навигация по сайту</span>
+          </h3>
+          <ul class="menu-list">
+            <li><a href="main.html" data-key="main">Главная</a></li>
+            <li><a href="navigation.html" data-key="map">Карта</a></li>
+            <li><a href="course_main.html" data-key="courses">Курсы</a></li>
+            <li><a href="project.html" data-key="projects">Проекты</a></li>
+            <li><a href="comments.html" data-key="reviews">Отзывы</a></li>
+            <li><a href="about.html" data-key="about">О нас</a></li>
+          </ul>
+        </section>
+        <h3 class="menu-caption">
+          <span class="cap-ico"><img src="/PICS_LOGOs/calenda.svg" alt="Календарь"></span> 
+          <span data-key="events">Мероприятия</span>
+        </h3>
         <ul class="menu-list">
-          <li><a href="main.html">Главная</a></li>
-          <li><a href="navigation.html">Карта</a></li>
-          <li><a href="course_main.html">Курсы</a></li>
-          <li><a href="project.html">Проекты</a></li>
-          <li><a href="comments.html">Отзывы</a></li>
-          <li><a href="about.html">О нас</a></li>
-        </ul>
-      </section>
-        <h3 class="menu-caption"><span class="cap-ico"><img src="/PICS_LOGOs/calenda.svg" alt="Календарь"></i></span> Мероприятия</h3>
-        <ul class="menu-list">
-          <li><a href="#">Всероссийские мероприятия</a></li>
-          <li><a href="#">Оружные мероприятия</a></li>
-          <li><a href="#">Международные мероприятия</a></li>
-          <li><a href="#">Грантовые мероприятия</a></li>
-          <li><a href="#">Все мероприятия</a></li>
+          <li><a href="#" data-key="russianEvents">Всероссийские мероприятия</a></li>
+          <li><a href="#" data-key="outdoorEvents">Оружные мероприятия</a></li>
+          <li><a href="#" data-key="internationalEvents">Международные мероприятия</a></li>
+          <li><a href="#" data-key="grantEvents">Грантовые мероприятия</a></li>
+          <li><a href="#" data-key="allEvents">Все мероприятия</a></li>
         </ul>
       </section>
 
       <section class="menu-section">
-        <h3 class="menu-caption"><span class="cap-ico alt"><i class="fa-regular fa-circle-question"></i></span> Помощь</h3>
+        <h3 class="menu-caption">
+          <span class="cap-ico alt"><i class="fa-regular fa-circle-question"></i></span> 
+          <span data-key="help">Помощь</span>
+        </h3>
         <ul class="menu-list">
-          <li><a href="#">Документы</a></li>
-          <li><a href="#">База знаний</a></li>
-          <li><a href="#">Международные мероприятия</a></li>
-          <li><a href="#">Грантовые мероприятия</a></li>
-          <li><a href="#">Все мероприятия</a></li>
+          <li><a href="#" data-key="documents">Документы</a></li>
+          <li><a href="#" data-key="knowledgeBase">База знаний</a></li>
+          <li><a href="#" data-key="internationalEvents">Международные мероприятия</a></li>
+          <li><a href="#" data-key="grantEvents">Грантовые мероприятия</a></li>
+          <li><a href="#" data-key="allEvents">Все мероприятия</a></li>
         </ul>
       </section>
     </div>
   </nav> 
-  <script src="/JS/main.js"></script> 
 </header>
-
-

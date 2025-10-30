@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>О нас</title>
+  <style>
+    /* Общие стили */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    body {
+      background-color: #f8f9fa;
+      color: #333;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    /* Стили для хедера */
+    .site-header {
+      background-color: #fff;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 0;
+    }
+    
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    
+    .menu-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 5px;
+    }
+    
+    .menu-btn img {
+      width: 24px;
+      height: 24px;
+    }
+    
+    .header-logo {
+      height: 40px;
+    }
+    
+    .date-box {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background-color: #f5f5f5;
+      padding: 8px 12px;
+      border-radius: 4px;
+    }
+    
+    .date-icon {
+      width: 16px;
+      height: 16px;
+    }
+    
+    .header-date {
+      font-size: 14px;
+      color: #555;
+    }
+    
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    
+    .language-switcher {
+      position: relative;
+    }
+    
+    .lang-btn {
+      background: none;
+      border: 1px solid #ddd;
+      padding: 8px 15px;
+      border-radius: 4px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s;
+    }
+    
+    .lang-btn:hover {
+      background-color: #f1f1f1;
+    }
+    
+    .lang-menu {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      width: 150px;
+      display: none;
+      list-style: none;
+      z-index: 10;
+    }
+    
+    .lang-menu.active {
+      display: block;
+    }
+    
+    .lang-menu li {
+      padding: 10px 15px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: background-color 0.2s;
+    }
+    
+    .lang-menu li:hover {
+      background-color: #f5f5f5;
+    }
+    
+    .login-btn, .register-btn {
+      background: none;
+      border: 1px solid #3498db;
+      color: #3498db;
+      padding: 8px 15px;
+      border-radius: 4px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s;
+    }
+    
+    .login-btn:hover, .register-btn:hover {
+      background-color: #3498db;
+      color: white;
+    }
+    
+    /* Стили для основного контента */
+    .hero-section {
+      padding: 60px 0;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      flex-grow: 1;
+    }
+    
+    .hero-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      align-items: center;
+    }
+    
+    .hero-left {
+      flex: 1;
+      min-width: 300px;
+    }
+    
+    .page-name {
+      color: #3498db;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    
+    .hero-title {
+      font-size: 2.5rem;
+      color: #2c3e50;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+    
+    .hero-description {
+      color: #555;
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+    }
+    
+    .hero-right {
+      flex: 1;
+      min-width: 300px;
+    }
+    
+    .slider-container {
+      position: relative;
+      margin-bottom: 30px;
+    }
+    
+    .slider {
+      position: relative;
+      height: 300px;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+    
+    .slide.active {
+      opacity: 1;
+    }
+    
+    .slider-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .slider-dots {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 15px;
+    }
+    
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: #bbb;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    
+    .dot.active {
+      background-color: #3498db;
+    }
+    
+    .mini-banners-right {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    
+    .mini-banner {
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    
+    .mini-banner:hover {
+      transform: translateY(-5px);
+    }
+    
+    .mini-banner-title {
+      font-size: 2rem;
+      color: #3498db;
+      margin-bottom: 10px;
+    }
+    
+    .mini-banner-text {
+      color: #555;
+      font-size: 0.9rem;
+    }
+    
+    /* Стили для футера */
+    .site-footer {
+      background-color: #2c3e50;
+      color: white;
+      padding: 30px 0;
+      margin-top: auto;
+    }
+    
+    .footer-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    
+    .footer-icons {
+      display: flex;
+      gap: 15px;
+    }
+    
+    .footer-icons a {
+      color: white;
+      font-size: 1.5rem;
+      transition: color 0.3s;
+    }
+    
+    .footer-icons a:hover {
+      color: #3498db;
+    }
+    
+    .footer-links {
+      display: flex;
+      gap: 20px;
+    }
+    
+    .footer-links a {
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    
+    .footer-links a:hover {
+      color: #3498db;
+    }
+    
+    /* Адаптивность */
+    @media (max-width: 768px) {
+      .hero-container {
+        flex-direction: column;
+      }
+      
+      .hero-title {
+        font-size: 2rem;
+      }
+      
+      .mini-banners-right {
+        grid-template-columns: 1fr;
+      }
+      
+      .footer-container {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ===== HEADER ===== -->
+  <header class="site-header">
+    <div class="container header-container">
+      <div class="header-left">
+        <button class="menu-btn" id="menuToggle" aria-label="Открыть меню" aria-expanded="false" aria-controls="megaMenu">
+          <img src="/PICS_LOGOs/menu_button.png" alt="Меню">
+        </button>
+        <a href="main.html" class="icon-link">
+          <img src="/PICS_LOGOs/logo.png" alt="Site Logo" class="header-logo">
+        </a>
+        <div class="date-box">
+          <img src="/PICS_LOGOs/calendar_header.png" alt="Календарь" class="date-icon">
+          <span class="header-date">12.10.25</span>
+        </div>
+      </div>
+
+      <div class="header-right">
+        <div class="language-switcher">
+          <button class="lang-btn" id="langToggle" aria-haspopup="listbox" aria-expanded="false">
+            <span class="lang-current">RU</span> <i class="fa-solid fa-caret-down"></i>
+          </button>
+          <ul class="lang-menu" id="langMenu" role="listbox" aria-label="Language">
+            <li role="option" data-lang="ru">Русский</li>
+            <li role="option" data-lang="en">English</li>
+            <li role="option" data-lang="hi">हिन्दी</li>
+            <li role="option" data-lang="zh">中文</li>
+          </ul>
+        </div>
+
+        <button class="login-btn" onclick="window.location.href='/HTML/login.html'">
+          <i class="fas fa-user"></i> <span class="login-text">Войти</span>
+        </button>
+
+        <button class="register-btn" onclick="window.location.href='/HTML/register.html'">
+          <i class="fas fa-user"></i> <span class="register-text">Регистрация</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main>
+    <section class="hero-section">
+      <div class="container hero-container">
+        <div class="hero-content">
+          <!-- SLIDER LEFT SIDE-->
+          <div class="hero-left">
+            <p class="page-name" data-key="about">О нас</p>
+            <h1 class="hero-title" data-key="heroTitle">Путеводная нить к русской душе</h1>
+            <p class="hero-description" data-key="heroDescription">
+              Наша платформа собрала лучшие российские инициативы федеральных органов исполнительной власти и других организаций 
+              в сфере международной молодёжной политики для стран БРИКС. Персонализированные модули "Название платформы" предоставляют представителям политических, общественных, научных и деловых кругов краткосрочные поездки в Россию программы "Новое поколение". И это еще не все! Пользователям открывается широкая библиотека вебинаров, лекций 
+              и интенсивов в области медиаграмотности 
+              от ведущих экспертов.
+            </p>
+          </div>
+          
+          <!-- SLIDER RIGHT SIDE -->
+          <div class="hero-right">
+            <div class="slider-container">
+              <div class="slider">
+                <div class="slide active">
+                    <img src="/PICS_LOGOs/about1.png" alt="Проекты" class="slider-image">
+                </div>
+                 <div class="slide">
+                    <img src="/PICS_LOGOs/about2.jpg" alt="Проекты" class="slider-image">
+                  </div>
+                  <div class="slide">
+                    <img src="/PICS_LOGOs/about3.jpg" alt="Курсы" class="slider-image">
+                  </div>
+                </div>
+                <div class="slider-dots">
+                  <span class="dot active" data-slide="0"></span>
+                  <span class="dot" data-slide="1"></span>
+                  <span class="dot" data-slide="2"></span>
+                </div>
+              </div>
+              
+              <div class="mini-banners-right">
+                <!-- Минибаннер 1 -->
+                <div class="mini-banner">
+                  <h3 class="mini-banner-title">100</h3>
+                  <p class="mini-banner-text" data-key="travelDirections">
+                    Направлений поездок
+                  </p>
+                </div>
+                
+                <!-- Минибаннер 2 -->
+                <div class="mini-banner">
+                  <h3 class="mini-banner-title">50</h3>
+                  <p class="mini-banner-text" data-key="annualEvents">
+                    Ежегодных мероприятий
+                  </p>
+                </div>
+                
+                <!-- Минибаннер 3 -->
+                <div class="mini-banner">
+                  <h3 class="mini-banner-title">2000</h3>
+                  <p class="mini-banner-text" data-key="foreignParticipants">
+                    Иностранных участников
+                  </p>
+                </div>
+                
+                <!-- Минибаннер 4 -->
+                <div class="mini-banner">
+                  <h3 class="mini-banner-title">1000+</h3>
+                  <p class="mini-banner-text" data-key="libraryRecords">
+                    Записей в библиотеке
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-icons">
+        <a href="#"><i class="fab fa-youtube"></i></a>
+        <a href="#"><i class="fab fa-telegram"></i></a>
+        <a href="#"><i class="fab fa-vk"></i></a>
+      </div>
+      <div class="footer-links">
+        <a href="#" data-key="aboutProject">О проекте</a>
+        <a href="#" data-key="address">Адрес</a>
+        <a href="#" data-key="consultation">Консультация</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js"></script>
+  <script>
+    // Переводы для всех языков
+    const translations = {
+      ru: {
+        about: "О нас",
+        heroTitle: "Путеводная нить к русской душе",
+        heroDescription: "Наша платформа собрала лучшие российские инициативы федеральных органов исполнительной власти и других организаций в сфере международной молодёжной политики для стран БРИКС. Персонализированные модули 'Название платформы' предоставляют представителям политических, общественных, научных и деловых кругов краткосрочные поездки в Россию программы 'Новое поколение'. И это еще не все! Пользователям открывается широкая библиотека вебинаров, лекций и интенсивов в области медиаграмотности от ведущих экспертов.",
+        travelDirections: "Направлений поездок",
+        annualEvents: "Ежегодных мероприятий",
+        foreignParticipants: "Иностранных участников",
+        libraryRecords: "Записей в библиотеке",
+        aboutProject: "О проекте",
+        address: "Адрес",
+        consultation: "Консультация",
+        login: "Войти",
+        register: "Регистрация"
+      },
+      en: {
+        about: "About Us",
+        heroTitle: "A Guiding Thread to the Russian Soul",
+        heroDescription: "Our platform has collected the best Russian initiatives from federal executive authorities and other organizations in the field of international youth policy for BRICS countries. Personalized modules of 'Platform Name' provide representatives of political, public, scientific and business circles with short-term trips to Russia under the 'New Generation' program. And that's not all! Users get access to a wide library of webinars, lectures and intensives in media literacy from leading experts.",
+        travelDirections: "Travel Directions",
+        annualEvents: "Annual Events",
+        foreignParticipants: "Foreign Participants",
+        libraryRecords: "Library Records",
+        aboutProject: "About Project",
+        address: "Address",
+        consultation: "Consultation",
+        login: "Login",
+        register: "Register"
+      },
+      hi: {
+        about: "हमारे बारे में",
+        heroTitle: "रूसी आत्मा के लिए एक मार्गदर्शक धागा",
+        heroDescription: "हमारे प्लेटफॉर्म ने ब्रिक्स देशों के लिए अंतरराष्ट्रीय युवा नीति के क्षेत्र में संघीय कार्यकारी अधिकारियों और अन्य संगठनों की सर्वश्रेष्ठ रूसी पहलों को एकत्र किया है। 'प्लेटफॉर्म नाम' के व्यक्तिगत मॉड्यूल राजनीतिक, सार्वजनिक, वैज्ञानिक और व्यावसायिक हलकों के प्रतिनिधियों को 'न्यू जेनरेशन' कार्यक्रम के तहत रूस की अल्पकालिक यात्राएं प्रदान करते हैं। और यह सब नहीं है! उपयोगकर्ताओं को अग्रणी विशेषज्ञों से मीडिया साक्षरता में वेबिनार, व्याख्यान और इंटेंसिव की एक विस्तृत लाइब्रेरी तक पहुंच मिलती है।",
+        travelDirections: "यात्रा दिशाएँ",
+        annualEvents: "वार्षिक कार्यक्रम",
+        foreignParticipants: "विदेशी प्रतिभागी",
+        libraryRecords: "लाइब्रेरी रिकॉर्ड",
+        aboutProject: "परियोजना के बारे में",
+        address: "पता",
+        consultation: "परामर्श",
+        login: "लॉग इन करें",
+        register: "पंजीकरण"
+      },
+      zh: {
+        about: "关于我们",
+        heroTitle: "通往俄罗斯灵魂的指引线",
+        heroDescription: "我们的平台汇集了联邦行政当局和其他组织在金砖国家国际青年政策领域的最佳俄罗斯倡议。'平台名称'的个性化模块为政治、公共、科学和商业界的代表提供'新一代'计划下的俄罗斯短期旅行。这还不是全部！用户可以访问由领先专家提供的关于媒体素养的网络研讨会、讲座和强化课程的广泛图书馆。",
+        travelDirections: "旅行方向",
+        annualEvents: "年度活动",
+        foreignParticipants: "外国参与者",
+        libraryRecords: "图书馆记录",
+        aboutProject: "关于项目",
+        address: "地址",
+        consultation: "咨询",
+        login: "登录",
+        register: "注册"
+      }
+    };
+
+    // Элементы DOM
+    const langToggle = document.getElementById('langToggle');
+    const langMenu = document.getElementById('langMenu');
+    const langCurrent = document.querySelector('.lang-current');
+    const loginText = document.querySelector('.login-text');
+    const registerText = document.querySelector('.register-text');
+
+    // Текущий язык
+    let currentLang = 'ru';
+
+    // Функция переключения языка
+    function changeLanguage(lang) {
+      currentLang = lang;
+      langCurrent.textContent = lang.toUpperCase();
+      
+      // Обновляем все текстовые элементы с data-key
+      document.querySelectorAll('[data-key]').forEach(element => {
+        const key = element.getAttribute('data-key');
+        if (translations[lang][key]) {
+          element.textContent = translations[lang][key];
+        }
+      });
+      
+      // Обновляем кнопки входа и регистрации
+      if (loginText) loginText.textContent = translations[lang].login;
+      if (registerText) registerText.textContent = translations[lang].register;
+      
+      // Закрываем меню выбора языка
+      langMenu.classList.remove('active');
+      langToggle.setAttribute('aria-expanded', 'false');
+      
+      // Сохраняем выбор языка в localStorage
+      localStorage.setItem('preferredLanguage', lang);
+    }
+
+    // Обработчики событий для выбора языка
+    langToggle.addEventListener('click', () => {
+      const isExpanded = langToggle.getAttribute('aria-expanded') === 'true';
+      langToggle.setAttribute('aria-expanded', !isExpanded);
+      langMenu.classList.toggle('active');
+    });
+
+    document.querySelectorAll('.lang-menu li').forEach(item => {
+      item.addEventListener('click', () => {
+        const lang = item.getAttribute('data-lang');
+        changeLanguage(lang);
+      });
+    });
+
+    // Закрытие меню при клике вне его
+    document.addEventListener('click', (e) => {
+      if (!langToggle.contains(e.target) && !langMenu.contains(e.target)) {
+        langMenu.classList.remove('active');
+        langToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    // Загрузка сохраненного языка при загрузке страницы
+    document.addEventListener('DOMContentLoaded', () => {
+      const savedLang = localStorage.getItem('preferredLanguage');
+      if (savedLang && translations[savedLang]) {
+        changeLanguage(savedLang);
+      }
+    });
+
+    // Слайдер
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.dot');
+
+    function showSlide(n) {
+      slides.forEach(slide => slide.classList.remove('active'));
+      dots.forEach(dot => dot.classList.remove('active'));
+      
+      currentSlide = (n + slides.length) % slides.length;
+      
+      slides[currentSlide].classList.add('active');
+      dots[currentSlide].classList.add('active');
+    }
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        showSlide(index);
+      });
+    });
+
+    // Автоматическое переключение слайдов
+    setInterval(() => {
+      showSlide(currentSlide + 1);
+    }, 5000);
+  </script>
+</body>
+</html>
