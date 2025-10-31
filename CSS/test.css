@@ -1,11 +1,32 @@
+@font-face {
+  font-family: 'Gilroy bold';
+  src: url('../font/Gilroy-Bold.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Gilroy medium';
+  src: url('../font/Gilroy-Medium.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Gilroy semibold';
+  src: url('../font/Gilroy-Semibold.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Gilroy regular';
+  src: url('../font/Gilroy-Regular.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Gilroy bold2';
+  src: url('../font/Gilroy-Bold.woff') format('woff');
+}
+
 /* Basic styling for the test page */
 
 .card-head h2 {
+  font-family: 'Gilroy bold2', sans-serif;
   font-size: 40px;
   margin-bottom: 20px;
   text-align: center;
   color: #4a60e0;  /* Match the title color */
-  font-weight: bold;
 }
 
 .test-stage {
@@ -28,6 +49,7 @@
 
 
 .test-card p {
+  font-family: 'Gilroy regular', sans-serif;
   font-size: 16px;
   line-height: 1.6;
 }
@@ -67,11 +89,13 @@
 }
 
 .result-section h3 {
+  font-family: 'Gilroy bold2', sans-serif;
   font-size: 20px;
   margin-bottom: 10px;
 }
 
 .result-section p {
+  font-family: 'Gilroy regular', sans-serif;
   font-size: 16px;
   line-height: 1.5;
 }
@@ -160,13 +184,14 @@
 .result-section h3 {
   font-size: 25px;
   color: #4a60e0;
-  font-weight: 700;
+  font-family: 'Gilroy bold2', sans-serif;
 }
 
 .result-section p {
   font-size: 16px;
   line-height: 1.5;
   color: #333;
+  font-family: 'Gilroy regular', sans-serif;
 }
 
 .certificate-block {

@@ -322,76 +322,56 @@ body {
   color: #3256ff;
 }
 
-.menu-list{ 
-  list-style: none; 
-  padding: 0; 
-  margin: 0; 
-}
-.menu-list li{ 
-  display: flex; 
-  align-items: center; 
-  gap: 10px; 
-  padding: 6px 0; 
-}
-.menu-list li::before{
-  content: ""; 
-  width: 8px; 
-  height: 8px; 
-  border-radius: 50%;
-  background: #3256ff;
-}
-.menu-list a{
-  color: #111827; 
-  text-decoration: none; 
-  font-weight: 500;
-}
-.menu-list a:hover{ 
-  text-decoration: underline; 
-}
-/* === FIX FOR MEGA-MENU LISTS === */
-.menu-list {
-    list-style: none !important;
-    padding: 0 !important;
-    margin: 0 !important;
+/* ВЫСОКАЯ СПЕЦИФИЧНОСТЬ для меню списков */
+.site-header .menu-list,
+.mega-menu .menu-list { 
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
 }
 
-.menu-list li {
-    display: flex !important;
-    align-items: center !important;
-    gap: 10px !important;
-    padding: 6px 0 !important;
-    margin-bottom: 0 !important;
+.site-header .menu-list li,
+.mega-menu .menu-list li { 
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  padding: 6px 0 !important;
+  margin-bottom: 0 !important;
 }
 
-.menu-list li::before {
-    content: "" !important;
-    width: 8px !important;
-    height: 8px !important;
-    border-radius: 50% !important;
-    background: #3256ff !important;
-    flex-shrink: 0 !important;
+.site-header .menu-list li::before,
+.mega-menu .menu-list li::before {
+  content: "" !important;
+  width: 8px !important;
+  height: 8px !important;
+  border-radius: 50% !important;
+  background: #3256ff !important;
+  flex-shrink: 0 !important;
 }
 
-.menu-list a {
-    color: #111827 !important;
-    text-decoration: none !important;
-    font-weight: 500 !important;
-    display: block !important;
+.site-header .menu-list a,
+.mega-menu .menu-list a {
+  color: #111827 !important;
+  text-decoration: none !important;
+  font-weight: 500 !important;
+  display: block !important;
 }
 
-.menu-list a:hover {
-    text-decoration: underline !important;
+.site-header .menu-list a:hover,
+.mega-menu .menu-list a:hover {
+  text-decoration: underline !important;
 }
 
-
-.menu-list input[type="checkbox"] {
-    display: none !important;
+.site-header .menu-list input[type="checkbox"],
+.mega-menu .menu-list input[type="checkbox"] {
+  display: none !important;
 }
 
-.menu-list label {
-    display: flex !important;
-    align-items: center !important;
-    gap: 10px !important;
-    cursor: pointer !important;
-    width: 100% !important;
+.site-header .menu-list label,
+.mega-menu .menu-list label {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  cursor: pointer !important;
+  width: 100% !important;
 }
