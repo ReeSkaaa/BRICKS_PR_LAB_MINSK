@@ -151,11 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
         form.addEventListener('submit', function(e) {
           const selectedInterests = Array.from(document.querySelectorAll('input[name="interests"]:checked'))
             .map(checkbox => checkbox.value);
-          
-          
-          console.log('Выбранные интересы:', selectedInterests);
-          
-          
+          console.log('Выбранные интересы:', selectedInterests);          
           const interestsInput = document.createElement('input');
           interestsInput.type = 'hidden';
           interestsInput.name = 'selectedInterests';
