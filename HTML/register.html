@@ -15,7 +15,7 @@
 
   <div data-include="/partials/header.html"></div>
 
-  <main class="auth-page">
+    <main class="auth-page">
     <div class="auth-card">
       <img src="/PICS_LOGOs/logo.png" alt="Логотип" class="auth-logo">
       <h1 class="auth-title">Регистрация</h1>
@@ -72,14 +72,59 @@
           <small id="pw2Hint" class="hint"></small>
         </div>
 
+        <!-- Interests block  -->
+        <div class="interests-section">
+          <h3 class="interests-title">Выберите ваши интересы (необязательно)</h3>
+          <div class="interests-grid">
+            <label class="interest-btn" for="interest-tech">
+              <input type="checkbox" id="interest-tech" name="interests" value="technology" class="interest-checkbox">
+              Технологии
+            </label>
+            <label class="interest-btn" for="interest-business">
+              <input type="checkbox" id="interest-business" name="interests" value="business" class="interest-checkbox">
+              Бизнес
+            </label>
+            <label class="interest-btn" for="interest-science">
+              <input type="checkbox" id="interest-science" name="interests" value="science" class="interest-checkbox">
+              Наука
+            </label>
+            <label class="interest-btn" for="interest-art">
+              <input type="checkbox" id="interest-art" name="interests" value="art" class="interest-checkbox">
+              Искусство
+            </label>
+            <label class="interest-btn" for="interest-sports">
+              <input type="checkbox" id="interest-sports" name="interests" value="sports" class="interest-checkbox">
+              Спорт
+            </label>
+            <label class="interest-btn" for="interest-health">
+              <input type="checkbox" id="interest-health" name="interests" value="health" class="interest-checkbox">
+              Здоровье
+            </label>
+            <label class="interest-btn" for="interest-travel">
+              <input type="checkbox" id="interest-travel" name="interests" value="travel" class="interest-checkbox">
+              Путешествия
+            </label>
+            <label class="interest-btn" for="interest-education">
+              <input type="checkbox" id="interest-education" name="interests" value="education" class="interest-checkbox">
+              Образование
+            </label>
+            <label class="interest-btn" for="interest-food">
+              <input type="checkbox" id="interest-food" name="interests" value="food" class="interest-checkbox">
+              Еда
+            </label>
+            <label class="interest-btn" for="interest-fashion">
+              <input type="checkbox" id="interest-fashion" name="interests" value="fashion" class="interest-checkbox">
+              Мода
+            </label>
+          </div>
+          <small class="interests-hint">Выберите области, которые вас интересуют, чтобы мы могли персонализировать ваш опыт</small>
+        </div>
+
         <div class="form-check">
           <input id="agree" type="checkbox" required>
           <label for="agree">Я принимаю условия обработки персональных данных</label>
         </div>
-
-        <!-- Remove disabled so JS can handle validation & submit -->
         <button id="registerBtn" class="btn btn-primary" type="submit">Создать аккаунт</button>
-        <!-- Fix path to login page if needed -->
         <a class="btn btn-ghost" href="/HTML/login.html">У меня уже есть аккаунт</a>
       </form>
     </div>

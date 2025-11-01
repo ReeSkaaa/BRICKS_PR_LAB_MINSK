@@ -1,9 +1,25 @@
+@font-face {
+  font-family: 'Gilroy bold';
+  src: url('../font/Gilroy-Bold.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Gilroy medium';
+  src: url('../font/Gilroy-Medium.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Gilroy semibold';
+  src: url('../font/Gilroy-Semibold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Gilroy regular';
+  src: url('../font/Gilroy-Regular.woff2') format('woff2');
+}
+
 /* ---- Base ---- */
 * { box-sizing: border-box; }
 body {
   margin: 0;
-  font-family: "Inter", system-ui, -apple-system, Segoe UI, Arial, sans-serif;
-  color: #1f2937;
   background: #eef2ff;
 }
 
@@ -31,6 +47,7 @@ body {
 }
 
 .auth-title {
+  font-family: 'Gilroy bold', sans-serif;
   text-align: center;
   font-size: 34px;
   color: #4a5df0;
@@ -128,6 +145,46 @@ input:focus {
   border: 1.5px solid #cfd6ff;
 }
 
-@media (max-width: 520px){
-  .form-row{ grid-template-columns: 1fr; }
+.interests-section {
+  margin: 15px 0;}
+    
+.interests-title {
+    font-family: 'Gilroy bold', sans-serif;
+    font-size: 16px;
+    margin-bottom: 10px;
 }
+    
+.interests-grid {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+    
+.interest-btn {
+  font-family: 'Gilroy semibold', sans-serif;
+  display: inline-block;
+  padding: 9px 16px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: #f8f9fa;
+  cursor: pointer;
+  text-align: center;
+  font-size: 15px;
+  user-select: none;}
+    
+.interest-btn:hover {
+  background-color: #e9ecef;}
+    
+.interest-btn.selected {
+  border-color: #506CEB;
+  background: #fff;
+}
+    
+.interests-hint {
+  font-size: 11px;
+  color: #666;
+  margin-top: 8px;}
+    
+
+.interest-checkbox {
+  display: none;}

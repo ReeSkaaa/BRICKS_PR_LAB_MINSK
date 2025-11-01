@@ -129,3 +129,38 @@ document.addEventListener('DOMContentLoaded', () => {
     window.location.href = '/HTML/login.html';
   });
 });
+// interests block
+    document.addEventListener('DOMContentLoaded', function() {
+      const interestButtons = document.querySelectorAll('.interest-btn');
+      
+      interestButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const checkbox = this.querySelector('input[type="checkbox"]');
+          checkbox.checked = !checkbox.checked;
+          
+          if (checkbox.checked) {
+            this.classList.add('selected');
+          } else {
+            this.classList.remove('selected');
+          }
+        });
+      });
+      
+      const form = document.getElementById('registerForm');
+      if (form) {
+        form.addEventListener('submit', function(e) {
+          const selectedInterests = Array.from(document.querySelectorAll('input[name="interests"]:checked'))
+            .map(checkbox => checkbox.value);
+          
+          
+          console.log('Выбранные интересы:', selectedInterests);
+          
+          
+          const interestsInput = document.createElement('input');
+          interestsInput.type = 'hidden';
+          interestsInput.name = 'selectedInterests';
+          interestsInput.value = JSON.stringify(selectedInterests);
+          form.appendChild(interestsInput);
+        });
+      }
+    });
